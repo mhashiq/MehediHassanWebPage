@@ -86,6 +86,48 @@
             </div>
           </div>
         </div>
+
+        <div style="margin-top:64px;">
+          <div class="eyebrow"><span class="slice">SLICE 06d</span> · Peer Review Record</div>
+          <h2 class="h-title">Verified Peer Review Activity</h2>
+          <p class="lead" style="margin-bottom:24px;">Verified review record of 122 reviews for 31 international journals and grant agencies. Sourced from official academic profiles.</p>
+
+          <div class="review-stats-grid">
+            <div class="review-stat-card">
+              <span class="num">122</span>
+              <span class="lbl">Total Reviews</span>
+            </div>
+            <div class="review-stat-card">
+              <span class="num">31</span>
+              <span class="lbl">Journals &amp; Grants</span>
+            </div>
+            <div class="review-stat-card">
+              <span class="num">Q1 / Q2</span>
+              <span class="lbl">Primary Quartile</span>
+            </div>
+          </div>
+
+          <div class="pub-toolbar" style="margin-bottom: 16px;">
+            <input type="text" class="pub-search" id="reviewSearch" style="width: 100%;" placeholder="Search by journal name, publisher, or JCR rank (e.g. 'IEEE', 'Elsevier', 'Q1')...">
+          </div>
+
+          <div class="review-table-wrapper">
+            <table class="review-table">
+              <thead>
+                <tr>
+                  <th style="width: 50%;">Journal / Grant Venue</th>
+                  <th>Publisher</th>
+                  <th style="text-align: center;">IF (2023/24)</th>
+                  <th style="text-align: center;">JCR Quartile</th>
+                  <th style="text-align: center; width: 110px;">Reviews</th>
+                </tr>
+              </thead>
+              <tbody id="reviewTableBody">
+                <!-- Dynamic Content -->
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -119,6 +161,74 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+    // Peer Review Data
+    const REVIEWS = [
+      { name: "IEEE Access", publisher: "IEEE", if: "3.4", quartile: "Q2", count: 36 },
+      { name: "Applied Sciences", publisher: "MDPI", if: "2.5", quartile: "Q2", count: 11 },
+      { name: "Sustainability", publisher: "MDPI", if: "3.3", quartile: "Q2", count: 8 },
+      { name: "Electronics", publisher: "MDPI", if: "2.6", quartile: "Q3", count: 7 },
+      { name: "Biomedical Signal Processing and Control", publisher: "Elsevier", if: "4.9", quartile: "Q1", count: 6 },
+      { name: "Human-Centric Intelligent Systems", publisher: "Springer", if: "2.5", quartile: "Q2", count: 6 },
+      { name: "International Journal of Environmental Research and Public Health", publisher: "MDPI", if: "3.0", quartile: "Q2", count: 6 },
+      { name: "Big Data and Cognitive Computing", publisher: "MDPI", if: "3.7", quartile: "Q2", count: 4 },
+      { name: "Bioengineering", publisher: "MDPI", if: "3.8", quartile: "Q2", count: 3 },
+      { name: "Healthcare", publisher: "MDPI", if: "2.4", quartile: "Q3", count: 3 },
+      { name: "Informatics in Medicine Unlocked", publisher: "Elsevier", if: "2.1", quartile: "Q2", count: 3 },
+      { name: "Cogent Engineering", publisher: "Taylor & Francis", if: "1.9", quartile: "Q3", count: 2 },
+      { name: "Computer Methods in Biomechanics and Biomedical Engineering", publisher: "Taylor & Francis", if: "1.6", quartile: "Q4", count: 2 },
+      { name: "Diagnostics", publisher: "MDPI", if: "3.0", quartile: "Q2", count: 2 },
+      { name: "Healthcare Analytics", publisher: "Elsevier", if: "2.0", quartile: "Q2", count: 2 },
+      { name: "IEEE Transactions on Automation Science and Engineering", publisher: "IEEE", if: "5.0", quartile: "Q1", count: 2 },
+      { name: "IEEE Transactions on Services Computing", publisher: "IEEE", if: "6.2", quartile: "Q1", count: 2 },
+      { name: "International Journal of Molecular Sciences", publisher: "MDPI", if: "4.9", quartile: "Q1", count: 2 },
+      { name: "International Journal of Services and Operations Management", publisher: "Inderscience", if: "1.8", quartile: "Q3", count: 2 },
+      { name: "PLOS ONE", publisher: "PLOS", if: "2.9", quartile: "Q2", count: 2 },
+      { name: "Applied Artificial Intelligence", publisher: "Taylor & Francis", if: "4.0", quartile: "Q2", count: 1 },
+      { name: "Behaviour & Information Technology", publisher: "Taylor & Francis", if: "3.0", quartile: "Q2", count: 1 },
+      { name: "Cell Biochemistry and Function", publisher: "Wiley", if: "2.8", quartile: "Q3", count: 1 },
+      { name: "Computers & Electrical Engineering", publisher: "Elsevier", if: "4.0", quartile: "Q1", count: 1 },
+      { name: "Connection Science", publisher: "Taylor & Francis", if: "1.5", quartile: "Q4", count: 1 },
+      { name: "EClinicalMedicine", publisher: "The Lancet (Elsevier)", if: "9.6", quartile: "Q1", count: 1 },
+      { name: "International Journal of Services, Economics and Management", publisher: "Inderscience", if: "1.1", quartile: "Q4", count: 1 },
+      { name: "International Journal of Water", publisher: "Inderscience", if: "0.8", quartile: "Q4", count: 1 },
+      { name: "Journal of Multidisciplinary Healthcare", publisher: "Dove Press", if: "3.3", quartile: "Q2", count: 1 },
+      { name: "Nutrition & Diabetes", publisher: "Nature Portfolio", if: "3.8", quartile: "Q2", count: 1 },
+      { name: "Scientific Reports", publisher: "Nature Portfolio", if: "3.8", quartile: "Q2", count: 1 }
+    ];
+
+    const searchInput = document.getElementById('reviewSearch');
+    const tableBody = document.getElementById('reviewTableBody');
+
+    function renderReviews() {
+      const query = searchInput.value.trim().toLowerCase();
+      tableBody.innerHTML = '';
+
+      const filtered = REVIEWS.filter(r => {
+        return r.name.toLowerCase().includes(query) || 
+               r.publisher.toLowerCase().includes(query) || 
+               r.quartile.toLowerCase().includes(query);
+      });
+
+      if (filtered.length === 0) {
+        tableBody.innerHTML = `<tr><td colspan="5" style="text-align: center; padding: 20px; color: var(--text-faint);">No review activity found matching your search.</td></tr>`;
+        return;
+      }
+
+      filtered.forEach(r => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><strong>${r.name}</strong></td>
+          <td>${r.publisher}</td>
+          <td style="text-align: center;"><span class="if-badge">${r.if}</span></td>
+          <td style="text-align: center;"><span class="q-badge ${r.quartile.toLowerCase()}">${r.quartile}</span></td>
+          <td style="text-align: center; font-weight: 700; color: var(--cyan);">${r.count}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    searchInput.addEventListener('input', renderReviews);
+    renderReviews();
   </script>
 </body>
 
