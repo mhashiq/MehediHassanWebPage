@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Projects | Md. Mehedi Hassan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Md. Mehedi Hassan — Ph.D. Researcher in Biomedical AI &amp; Medical Imaging, Texas Tech University.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230A0E13%22/><ellipse cx=%2250%22 cy=%2252%22 rx=%2230%22 ry=%2236%22 fill=%22none%22 stroke=%22%2345D6C0%22 stroke-width=%225%22/><path d=%22M32 46 Q50 34 68 46%22 fill=%22none%22 stroke=%22%2345D6C0%22 stroke-width=%224%22 stroke-linecap=%22round%22/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a href="index.html" class="brand">MEHEDI<span class="dot">·</span>HASSAN</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="navlinks" id="navLinks">
+        <li><a href="index.html"><span class="idx">00</span>Home</a></li>
+        <li><a href="research.html"><span class="idx">01</span>Research</a></li>
+        <li><a href="experience.html"><span class="idx">02</span>Experience</a></li>
+        <li><a href="publications.html"><span class="idx">03</span>Publications</a></li>
+        <li><a href="books.html"><span class="idx">04</span>Books</a></li>
+        <li><a href="projects.html"><span class="idx">05</span>Projects</a></li>
+        <li><a href="editorial.html"><span class="idx">06</span>Editorial</a></li>
+        <li><a href="startups.html"><span class="idx">07</span>Startups</a></li>
+        <li><a href="news.html"><span class="idx">08</span>News</a></li>
+        <li><a href="community.html"><span class="idx">09</span>Non-Profit</a></li>
+        <li><a href="contact.html"><span class="idx">10</span>Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="projects">
+      <div class="wrap">
+        <div class="eyebrow"><span class="slice">SLICE 05</span> · Engineering Projects</div>
+        <h2 class="h-title">Software &amp; Applied AI Systems</h2>
+        <div class="proj-grid">
+          <div class="proj-card">
+            <div class="phead"><h3>AuthB2B</h3><a class="gh" href="https://github.com/mhashiq/AuthB2B" target="_blank" rel="noopener">GitHub ↗</a></div>
+            <p>High-concurrency B2B adaptive authentication engine using unsupervised ML for risk-based, zero-trust access control with dynamic RBAC/ABAC enforcement.</p>
+            <div class="stack"><span>Python</span><span>PyTorch</span><span>FastAPI</span><span>OAuth2/OIDC</span><span>Docker</span><span>PostgreSQL</span></div>
+          </div>
+          <div class="proj-card">
+            <div class="phead"><h3>AuthFaceGraph</h3><a class="gh" href="https://github.com/mhashiq/AuthFaceGraph" target="_blank" rel="noopener">GitHub ↗</a></div>
+            <p>Identity verification framework combining deep facial recognition with Graph Neural Networks to detect fraud rings and identity spoofing in real time.</p>
+            <div class="stack"><span>PyTorch</span><span>DeepFace</span><span>GNN</span><span>OpenCV</span><span>Flask</span><span>Neo4j</span></div>
+          </div>
+          <div class="proj-card">
+            <div class="phead"><h3>3DSegmaUNet</h3><span class="gh" style="opacity:.5;">In development</span></div>
+            <p>End-to-end 3D volumetric liver segmentation from CT scans using a lightweight 3D U-Net optimized for high Dice similarity and low inference latency, packaged as a clinical web workflow.</p>
+            <div class="stack"><span>Python</span><span>PyTorch</span><span>MONAI</span><span>SimpleITK</span><span>Flask</span><span>3D Slicer</span></div>
+          </div>
+          <div class="proj-card">
+            <div class="phead"><h3>MultiClipboard</h3><a class="gh" href="https://github.com/mhashiq/MultiClipboard" target="_blank" rel="noopener">GitHub ↗</a></div>
+            <p>Manifest V3 Chrome extension for multi-item clipboard history with client-side NLP tagging, fast search indexing, and real-time sync.</p>
+            <div class="stack"><span>JavaScript ES6+</span><span>Manifest V3</span><span>Web Extension API</span><span>Chrome Storage</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Md. Mehedi Hassan &middot; <a href="index.html">Home</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="#top">Back to top &uarr;</a></p>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+      navToggle.textContent = open ? '✕' : '☰';
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', false);
+      navToggle.textContent = '☰';
+    }));
+    // Mark current page active
+    const curPage = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navlinks a').forEach(a => {
+      if (a.getAttribute('href') === curPage) a.classList.add('active');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  </script>
+</body>
+
+</html>
