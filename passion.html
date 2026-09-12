@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Passion &amp; Travel | Md. Mehedi Hassan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Beyond the lab — the places Md. Mehedi Hassan has lived and worked, mapped and annotated, alongside the teaching, writing and volunteering that sit outside the research.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230A0E13%22/><ellipse cx=%2250%22 cy=%2252%22 rx=%2230%22 ry=%2236%22 fill=%22none%22 stroke=%22%2345D6C0%22 stroke-width=%225%22/><path d=%22M32 46 Q50 34 68 46%22 fill=%22none%22 stroke=%22%2345D6C0%22 stroke-width=%224%22 stroke-linecap=%22round%22/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="shared.css">
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a href="index.html" class="brand">MEHEDI<span class="dot">&middot;</span>HASSAN</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <ul class="navlinks" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="editorial.html">Editorial</a></li>
+        <li><a href="startups.html">Startups</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="community.html">Non-Profit</a></li>
+        <li><a href="passion.html">Passion</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <main id="main">
+    <section id="passion">
+      <div class="wrap">
+        <div class="eyebrow"><span class="slice">SLICE 09b</span> &middot; Passion &amp; Travel</div>
+        <h2 class="h-title">Beyond the Lab</h2>
+        <p class="passion-lead">Three continents, seven countries, and a lot of highway. From a computer science
+          department in <strong>Khulna</strong> to the Himalayas at <strong>Ladakh</strong>, the Kashmir Valley, the
+          Kerala backwaters, and now the long empty coast roads of <strong>South Australia</strong>. This page is the
+          part of the work that does not fit in a citation count &mdash; the places, the drives, the fishing, and the
+          volunteering I do when the models are training.</p>
+
+        <div class="pt-stats" id="ptStats"></div>
+
+        <div class="p-block">
+          <div class="v-label">Places on the map</div>
+          <div class="map-shell">
+            <div id="travelmap" role="img" aria-label="World map showing places lived and worked"></div>
+            <div class="map-hint">Shaded countries are ones I&rsquo;ve visited &middot; amber pin is home &middot; click a pin or any card to move the map</div>
+          </div>
+        </div>
+
+        <div class="p-block">
+          <div class="v-label">Where I&rsquo;ve been</div>
+          <div class="region-bar" id="regionBar" role="group" aria-label="Filter places by country"></div>
+          <div id="placeGrid"></div>
+        </div>
+
+        <div class="p-block">
+          <div class="v-label">The big drive</div>
+          <div id="tripHost"></div>
+        </div>
+
+        <div class="p-block">
+          <div class="v-label">Photo journal</div>
+          <div id="galleryHost"></div>
+        </div>
+
+        <div class="p-block">
+          <div class="v-label">Passions outside the research</div>
+          <div class="hobby-grid" id="hobbyGrid"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Close image">&#10005;</button>
+    <img id="lbImg" src="" alt="">
+    <div class="lb-cap" id="lbCap"></div>
+  </div>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Md. Mehedi Hassan &middot; <a href="index.html">Home</a> &middot; <a
+        href="contact.html">Contact</a> &middot; <a href="#top">Back to top &uarr;</a></p>
+  </footer>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script>
+    /* =====================================================================
+       EDIT THIS BLOCK — everything on the page is built from it.
+
+       PLACES  : add a { } entry per city. `home: true` paints the pin amber.
+                 Look up lat/lng by right-clicking the spot in Google Maps.
+       PHOTOS  : drop image files into images/travel/ then add a line here.
+                 Missing files are skipped automatically, so it is safe to
+                 list a photo before you have uploaded it.
+       HOBBIES : add a { } entry per interest.
+       ===================================================================== */
+
+    const PLACES = [
+      // --- Bangladesh ---
+      { city: 'Khulna', country: 'Bangladesh', flag: '\u{1F1E7}\u{1F1E9}', lat: 22.8456, lng: 89.5403, home: true,
+        note: 'Home city. Studied Computer Science and Engineering, trained 250+ students through Vcourse, and founded both the Dinghy Foundation and the company that became AuthBrain.' },
+
+      // --- Australia ---
+      { city: 'Adelaide', country: 'Australia', flag: '\u{1F1E6}\u{1F1FA}', lat: -34.9285, lng: 138.6007,
+        note: 'Base in South Australia. Delivered the DICTA 2025 keynote here, and donate blood and plasma regularly with Australian Red Cross Lifeblood.' },
+      { city: 'Marion Bay', country: 'Australia', flag: '\u{1F1E6}\u{1F1FA}', lat: -35.2167, lng: 136.9833,
+        note: 'The far tip of the Yorke Peninsula, beside Dhilba Guuranda-Innes National Park \u2014 the turning point of a 1,630 km road trip.' },
+      { city: 'Victor Harbor', country: 'Australia', flag: '\u{1F1E6}\u{1F1FA}', lat: -35.5525, lng: 138.6217,
+        note: 'Fleurieu Peninsula coastal town, known for Granite Island and the southern right whales that pass through in winter.' },
+      { city: 'Mount Barker', country: 'Australia', flag: '\u{1F1E6}\u{1F1FA}', lat: -35.0667, lng: 138.8589,
+        note: 'In the Adelaide Hills, east of the city.' },
+      { city: 'Mount Gambier', country: 'Australia', flag: '\u{1F1E6}\u{1F1FA}', lat: -37.8318, lng: 140.7792,
+        note: 'Limestone Coast city built around volcanic craters \u2014 the Blue Lake turns vivid cobalt each summer.' },
+      { city: 'Robe', country: 'Australia', flag: '\u{1F1E6}\u{1F1FA}', lat: -37.1631, lng: 139.7561,
+        note: 'Historic fishing port on the Limestone Coast.' },
+      { city: 'Port Lincoln', country: 'Australia', flag: '\u{1F1E6}\u{1F1FA}', lat: -34.7211, lng: 135.8581,
+        note: 'On the Eyre Peninsula, at the head of Boston Bay \u2014 the seafood capital of Australia.' },
+      { city: 'Blue Mountains & Sydney', country: 'Australia', flag: '\u{1F1E6}\u{1F1FA}', lat: -33.7123, lng: 150.3119,
+        note: 'Blue Mountains National Park in New South Wales, the sandstone escarpment and eucalyptus haze west of Sydney.' },
+
+      // --- India ---
+      { city: 'Ladakh', country: 'India', flag: '\u{1F1EE}\u{1F1F3}', lat: 34.1526, lng: 77.5771,
+        note: 'High-altitude desert in the Himalayas, most of it above 3,000 m.' },
+      { city: 'Pahalgam', country: 'India', flag: '\u{1F1EE}\u{1F1F3}', lat: 34.0161, lng: 75.3150,
+        note: 'Kashmir Valley, on the Lidder River below the Himalayan tree line.' },
+      { city: 'Srinagar', country: 'India', flag: '\u{1F1EE}\u{1F1F3}', lat: 34.0837, lng: 74.7973,
+        note: 'Karan Nagar, Srinagar \u2014 the summer capital of Jammu and Kashmir, on Dal Lake.' },
+      { city: 'Chandigarh', country: 'India', flag: '\u{1F1EE}\u{1F1F3}', lat: 30.7333, lng: 76.7794,
+        note: 'The planned city designed by Le Corbusier, at the foot of the Shivaliks.' },
+      { city: 'Darjeeling', country: 'India', flag: '\u{1F1EE}\u{1F1F3}', lat: 27.0360, lng: 88.2627,
+        note: 'West Bengal hill station in the Lesser Himalayas, looking out to Kangchenjunga.' },
+      { city: 'Digha', country: 'India', flag: '\u{1F1EE}\u{1F1F3}', lat: 21.6270, lng: 87.5090,
+        note: 'Bay of Bengal beach town on the West Bengal coast.' },
+      { city: 'Cherthala', country: 'India', flag: '\u{1F1EE}\u{1F1F3}', lat: 9.6847, lng: 76.3388,
+        note: 'Kerala backwaters, in the Alappuzha district.' },
+
+      // --- United States ---
+      { city: 'Lubbock, Texas', country: 'United States', flag: '\u{1F1FA}\u{1F1F8}', lat: 33.5779, lng: -101.8552,
+        note: 'Ph.D. research at Texas Tech University, College of Health &amp; Human Sciences \u2014 AI-driven medical imaging for chronic metabolic conditions.' },
+      { city: 'Dallas, Texas', country: 'United States', flag: '\u{1F1FA}\u{1F1F8}', lat: 32.7767, lng: -96.7970,
+        note: 'North Texas.' },
+
+      // --- elsewhere ---
+      { city: 'Dubai', country: 'United Arab Emirates', flag: '\u{1F1E6}\u{1F1EA}', lat: 25.2048, lng: 55.2708,
+        note: 'On the Persian Gulf coast.' },
+      { city: 'Mal\u00e9', country: 'Maldives', flag: '\u{1F1F2}\u{1F1FB}', lat: 4.1755, lng: 73.5093,
+        note: 'The Maldivian capital, a single dense island in the middle of the Indian Ocean.' },
+      { city: 'Thailand', country: 'Thailand', flag: '\u{1F1F9}\u{1F1ED}', lat: 13.7563, lng: 100.5018,
+        note: 'Southeast Asia.' }
+    ];
+
+    // One trip worth its own panel.
+    const TRIP = {
+      title: 'Yorke Peninsula \u2014 1,630 km with my wife',
+      image: 'images/travel/yorke-peninsula-road-trip.jpg',
+      caption: 'The route: Adelaide \u2192 Port Wakefield \u2192 Kadina \u2192 Wallaroo \u2192 Moonta Bay \u2192 Minlaton \u2192 Point Turton \u2192 Marion Bay \u2192 Cape Spencer \u2192 Innes National Park \u2192 Yorketown \u2192 Edithburgh \u2192 Port Vincent \u2192 Ardrossan \u2192 home',
+      text: 'A full loop of the Yorke Peninsula from Adelaide, driving the whole way with my wife. Up the western coast through Wallaroo and Moonta Bay, down to Marion Bay and Cape Spencer at the very bottom of Dhilba Guuranda-Innes National Park, then back along the eastern shore through Edithburgh, Port Vincent and Ardrossan.',
+      stats: [['1,630', 'Kilometres driven'], ['14+', 'Towns & stops'], ['3', 'Coastlines'], ['1', 'Co-driver']]
+    };
+
+    const PHOTOS = [
+      { src: 'images/travel/yorke-peninsula-road-trip.jpg', caption: 'Yorke Peninsula road trip route \u2014 1,630 km, South Australia' },
+      { src: 'images/travel/fishing-south-australia.jpg', caption: 'Fishing the South Australian coast' },
+      { src: 'images/travel/blood-donation-adelaide-1.jpg', caption: 'Blood donation \u2014 Red Cross Lifeblood, Adelaide' },
+      { src: 'images/travel/blood-donation-adelaide-2.jpg', caption: 'After the donation \u2014 Lifeblood, Adelaide' },
+      { src: 'images/travel/book-brain-networks.jpg', caption: 'Brain Networks in Neuroscience \u2014 River Publishers' },
+      { src: 'images/travel/book-earth-sciences.jpg', caption: 'Emerging AI Applications in Earth Sciences \u2014 Springer' },
+      { src: 'images/mehedi_hassan.jpg', caption: 'DICTA 2025 keynote \u2014 Adelaide, Australia' }
+    ];
+
+    const HOBBIES = [
+      {
+        kind: 'Road trips', title: 'Long drives, coast to coast',
+        text: 'Australia rewards anyone willing to drive. The Yorke Peninsula loop was 1,630 km in one trip, and the ' +
+          'Limestone Coast run through Robe and Mount Gambier is its own kind of good \u2014 volcanic crater lakes, ' +
+          'fishing ports and a lot of empty highway.'
+      },
+      {
+        kind: 'Fishing', title: 'Beach & jetty fishing',
+        text: 'South Australia has some of the best accessible fishing anywhere \u2014 long beaches, quiet jetties, ' +
+          'and enough time on the sand to properly stop thinking about model checkpoints.'
+      },
+      {
+        kind: 'Giving back', title: 'Blood & plasma donation',
+        text: 'Regular voluntary donor with Australian Red Cross Lifeblood in Adelaide, supporting emergency medical ' +
+          'supplies and transfusion medicine across South Australia.'
+      },
+      {
+        kind: 'Community', title: 'Child safety & youth empowerment',
+        text: 'Founder and Executive Director of the Dinghy Foundation, running non-profit initiatives on child ' +
+          'protection, digital safety education and youth empowerment across regional communities in Bangladesh.'
+      },
+      {
+        kind: 'Teaching', title: 'Mentoring the next engineers',
+        text: 'Designed AI, data science and full-stack curricula as a senior trainer, and mentored more than 250 ' +
+          'trainees into engineering and freelance careers. If it cannot be explained to a beginner, it is not ' +
+          'understood well enough.'
+      },
+      {
+        kind: 'Writing', title: 'Editing & academic publishing',
+        text: 'Eight edited scholarly books with premier publishers, plus editorial work across leading Q1 and Q2 ' +
+          'journals. Shaping other people\u2019s research is a different craft from doing your own, and a rewarding one.'
+      }
+    ];
+
+    /* ===================== nothing below needs editing ==================== */
+
+    // ---- stats, derived from PLACES so they can never drift ----
+    const countries = [...new Set(PLACES.map(p => p.country))];
+    document.getElementById('ptStats').innerHTML = [
+      ['' + countries.length, 'Countries visited'],
+      ['' + PLACES.length, 'Cities & regions'],
+      ['3', 'Continents'],
+      ['1,630', 'km in one road trip']
+    ].map(([n, l]) => `<div><b>${n}</b><span>${l}</span></div>`).join('');
+
+    // ---- country display names ----
+    // short = what the filter button shows; ne = the name used by the map geometry
+    const COUNTRY_META = {
+      'Bangladesh':           { short: 'Bangladesh', ne: 'Bangladesh' },
+      'Australia':            { short: 'Australia',  ne: 'Australia' },
+      'India':                { short: 'India',      ne: 'India' },
+      'United States':        { short: 'USA',        ne: 'United States of America' },
+      'United Arab Emirates': { short: 'UAE',        ne: 'United Arab Emirates' },
+      'Maldives':             { short: 'Maldives',   ne: 'Maldives' },
+      'Thailand':             { short: 'Thailand',   ne: 'Thailand' }
+    };
+    const meta = c => COUNTRY_META[c] || { short: c, ne: c };
+    const flagOf = c => (PLACES.find(p => p.country === c) || {}).flag || '';
+
+    // ---- map ----
+    // No tile layer: the basemap is a public-domain Natural Earth outline served
+    // from this site. That means no map API, no tile requests, no rate limits and
+    // no provider credit burned into the corner of the map.
+    const map = L.map('travelmap', {
+      scrollWheelZoom: false,
+      zoomControl: true,
+      attributionControl: false,
+      minZoom: 1,
+      maxZoom: 8
+    });
+
+    const visitedNE = new Set(countries.map(c => meta(c).ne));
+
+    fetch('data/world-110m.geojson')
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(world => {
+        L.geoJSON(world, {
+          interactive: false,
+          style: f => visitedNE.has(f.properties.name)
+            ? { color: '#0E8E7D', weight: 1, fillColor: '#0E8E7D', fillOpacity: 0.17 }
+            : { color: '#C9D5DA', weight: 0.7, fillColor: '#FBFCFC', fillOpacity: 1 }
+        }).addTo(map);
+      })
+      .catch(() => {
+        // geometry missing or blocked — pins and popups still work on the plain ground
+      });
+
+    const markers = PLACES.map((p, i) => {
+      const m = L.marker([p.lat, p.lng], {
+        title: `${p.city}, ${p.country}`,
+        icon: L.divIcon({ className: '', html: `<div class="pin${p.home ? ' home' : ''}"></div>`, iconSize: [16, 16], iconAnchor: [8, 8] })
+      }).addTo(map);
+      m.bindPopup(
+        `<b>${p.city}</b><span class="pc-meta">${p.country}</span>${p.note || ''}`,
+        { maxWidth: 260 }
+      );
+      m.on('click', () => highlight(i, false));
+      return m;
+    });
+
+    // invalidateSize first: showing/hiding country groups changes page height, which
+    // can add or remove the scrollbar and silently resize the map container. Without
+    // this Leaflet fits against a stale size and the call can end up a no-op.
+    // animate:false stops a still-running fly/zoom from swallowing the new view.
+    function fitTo(list) {
+      map.invalidateSize({ animate: false });
+      map.fitBounds(L.latLngBounds(list.map(p => [p.lat, p.lng])), {
+        padding: [50, 50], maxZoom: 5, animate: false
+      });
+    }
+    fitTo(PLACES);
+
+    // ---- region filter ----
+    document.getElementById('regionBar').innerHTML =
+      [`<button class="region-chip on" type="button" data-region="All">
+          <span class="rc-flag" aria-hidden="true">\u{1F30D}</span>
+          <span class="rc-label">All places</span>
+          <span class="rc-n">${PLACES.length}</span>
+        </button>`]
+        .concat(countries.map(c => `
+        <button class="region-chip" type="button" data-region="${c}" title="${c}">
+          <span class="rc-flag" aria-hidden="true">${flagOf(c)}</span>
+          <span class="rc-label">${meta(c).short}</span>
+          <span class="rc-n">${PLACES.filter(p => p.country === c).length}</span>
+        </button>`)).join('');
+
+    document.getElementById('regionBar').addEventListener('click', e => {
+      const chip = e.target.closest('.region-chip');
+      if (!chip) return;
+      const region = chip.dataset.region;
+      document.querySelectorAll('.region-chip').forEach(c => c.classList.toggle('on', c === chip));
+      document.querySelectorAll('.country-group').forEach(g => {
+        g.hidden = region !== 'All' && g.dataset.country !== region;
+      });
+      // fit synchronously -- requestAnimationFrame callbacks are throttled (or never
+      // run) in a backgrounded tab, which would leave the map stuck on the old region.
+      fitTo(region === 'All' ? PLACES : PLACES.filter(p => p.country === region));
+    });
+
+    // ---- place cards, grouped by country ----
+    document.getElementById('placeGrid').innerHTML = countries.map(c => {
+      const inCountry = PLACES.map((p, i) => ({ p, i })).filter(x => x.p.country === c);
+      return `<div class="country-group" data-country="${c}">
+        <h3 class="country-head"><span class="flag" aria-hidden="true">${inCountry[0].p.flag}</span>${c}<span class="n">${inCountry.length}</span></h3>
+        <div class="place-grid">` + inCountry.map(({ p, i }) => `
+          <button class="place-card" type="button" data-i="${i}">
+            <span class="pc-where">${p.city}</span>
+            <span class="pc-country">${p.home ? 'Home city' : p.country}</span>
+            ${p.note ? `<p>${p.note}</p>` : ''}
+          </button>`).join('') + `</div></div>`;
+    }).join('');
+
+    const cards = [...document.querySelectorAll('.place-card')];
+
+    function highlight(i, moveMap = true) {
+      cards.forEach(c => c.classList.toggle('active', +c.dataset.i === i));
+      if (moveMap) {
+        map.flyTo([PLACES[i].lat, PLACES[i].lng], 8, { duration: 0.9 });
+        markers[i].openPopup();
+      }
+    }
+
+    cards.forEach(c => c.addEventListener('click', () => highlight(+c.dataset.i)));
+
+    // ---- featured road trip ----
+    document.getElementById('tripHost').innerHTML = `
+      <div class="trip-card">
+        <figure class="trip-figure" id="tripFig">
+          <img src="${TRIP.image}" alt="${TRIP.caption}" loading="lazy">
+        </figure>
+        <div class="trip-body">
+          <h3>${TRIP.title}</h3>
+          <p>${TRIP.text}</p>
+          <div class="trip-figures">
+            ${TRIP.stats.map(([n, l]) => `<div><b>${n}</b><span>${l}</span></div>`).join('')}
+          </div>
+        </div>
+      </div>`;
+
+    // ---- photo gallery (skips files that are not there yet) ----
+    const host = document.getElementById('galleryHost');
+    if (!PHOTOS.length) {
+      host.innerHTML = '<div class="gallery-empty">Photo journal coming soon.</div>';
+    } else {
+      host.innerHTML = '<div class="gallery-grid">' + PHOTOS.map((p, i) => `
+        <figure class="gallery-item" data-i="${i}" tabindex="0" role="button"
+          aria-label="Open photo: ${p.caption}">
+          <img src="${p.src}" alt="${p.caption}" loading="lazy">
+          <figcaption>${p.caption}</figcaption>
+        </figure>`).join('') + '</div>';
+
+      // drop any tile whose image fails to load, so a not-yet-uploaded
+      // filename never shows up as a broken icon
+      host.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', () => {
+          img.closest('.gallery-item').remove();
+          if (!host.querySelectorAll('.gallery-item').length) {
+            host.innerHTML = '<div class="gallery-empty">Photo journal coming soon.</div>';
+          }
+        });
+      });
+    }
+
+    // ---- lightbox ----
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCap = document.getElementById('lbCap');
+
+    function openLb(i) {
+      lbImg.src = PHOTOS[i].src;
+      lbImg.alt = PHOTOS[i].caption;
+      lbCap.textContent = PHOTOS[i].caption;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lb-open');
+      document.getElementById('lbClose').focus();
+    }
+
+    function closeLb() {
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lb-open');
+    }
+
+    host.addEventListener('click', e => {
+      const fig = e.target.closest('.gallery-item');
+      if (fig) openLb(+fig.dataset.i);
+    });
+    // the trip map is the first gallery entry, so reuse the same lightbox
+    document.getElementById('tripFig').addEventListener('click', () => openLb(0));
+    host.addEventListener('keydown', e => {
+      const fig = e.target.closest('.gallery-item');
+      if (fig && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openLb(+fig.dataset.i); }
+    });
+    document.getElementById('lbClose').addEventListener('click', closeLb);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+
+    // ---- hobbies ----
+    document.getElementById('hobbyGrid').innerHTML = HOBBIES.map(h => `
+      <div class="hobby-card">
+        <span class="hc-kind">${h.kind}</span>
+        <h3>${h.title}</h3>
+        <p>${h.text}</p>
+      </div>`).join('');
+
+    // ---- nav (same behaviour as every other page) ----
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navBackdrop = document.getElementById('navBackdrop');
+
+    function setNav(open) {
+      navLinks.classList.toggle('open', open);
+      navBackdrop.classList.toggle('open', open);
+      document.body.classList.toggle('nav-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.textContent = open ? '\u2715' : '\u2630';
+      navToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    }
+
+    navToggle.addEventListener('click', () => setNav(!navLinks.classList.contains('open')));
+    navBackdrop.addEventListener('click', () => setNav(false));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
+    document.addEventListener('keydown', e => {
+      if (e.key !== 'Escape') return;
+      if (lb.classList.contains('open')) { closeLb(); return; }
+      if (navLinks.classList.contains('open')) { setNav(false); navToggle.focus(); }
+    });
+    window.matchMedia('(min-width: 1101px)').addEventListener('change', e => {
+      if (e.matches) setNav(false);
+    });
+
+    const curPage = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navlinks a').forEach(a => {
+      if (a.getAttribute('href') === curPage) a.classList.add('active');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

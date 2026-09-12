@@ -1,0 +1,45 @@
+name: Update Google Scholar stats
+
+on:
+  schedule:
+    # Mondays at 06:17 UTC. An off-the-hour minute avoids the scheduling
+    # backlog GitHub gets at :00, which can delay or drop a run.
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-scholar
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch stats and update pages
+        env:
+          # Optional. Without it the script falls back to a direct fetch,
+          # which Google sometimes blocks from CI IPs — in that case the run
+          # logs a warning and leaves the site untouched.
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: python scripts/update_scholar.py
+
+      - name: Commit if anything changed
+        run: |
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Update Google Scholar stats"
+          git push

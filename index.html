@@ -83,6 +83,14 @@
       max-width: 100%;
     }
 
+    /* Long unbreakable strings -- DOIs, ISBNs, URLs, long compound words -- are the
+       usual cause of horizontal scroll on narrow phones. Let them break rather than
+       push the layout wider than the screen. */
+    h1, h2, h3, h4, h5, h6,
+    p, li, td, th, figcaption, span, a {
+      overflow-wrap: break-word;
+    }
+
     .wrap {
       max-width: var(--maxw);
       margin: 0 auto;
@@ -114,10 +122,20 @@
       top: 0;
       z-index: 100;
       background: rgba(255, 255, 255, 0.97);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
       box-shadow: 0 1px 8px rgba(0, 0, 0, 0.07);
+    }
+
+    /* The blur lives on a pseudo-element: `backdrop-filter` on .topnav itself
+       turns the header into a containing block, which breaks the position:fixed
+       mobile drawer nested inside it. */
+    .topnav::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
     .topnav-inner {
@@ -146,6 +164,10 @@
       gap: 4px;
       text-decoration: none;
       color: var(--text);
+      /* padding gives a 46px tap target; the negative margin keeps the header
+         looking exactly the same */
+      padding: 12px 4px;
+      margin: -12px -4px;
     }
 
     .brand .dot {
@@ -182,67 +204,105 @@
       border-bottom-color: var(--cyan);
     }
 
-    .navlinks .idx {
-      color: var(--text-faint);
-      font-size: 9.5px;
-    }
-
     .nav-toggle {
       display: none;
+      align-items: center;
+      justify-content: center;
       background: none;
       border: 1px solid var(--line);
       color: var(--text);
-      width: 38px;
-      height: 38px;
+      width: 44px;
+      height: 44px;
       border-radius: var(--radius);
       font-family: var(--mono);
-      font-size: 16px;
+      font-size: 17px;
       cursor: pointer;
       line-height: 1;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    /* Responsive mobile nav — collapses at ≤1100px */
+    .nav-toggle:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 2px;
+    }
+
+    /* dimmed backdrop behind the mobile drawer */
+    .nav-backdrop {
+      display: none;
+    }
+
+    /* Responsive mobile nav — slide-in drawer at ≤1100px */
     @media (max-width:1100px) {
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 98;
+        background: rgba(17, 26, 33, 0.42);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .28s ease, visibility .28s ease;
+      }
+
+      .nav-backdrop.open {
+        opacity: 1;
+        visibility: visible;
+      }
+
       .navlinks {
         position: fixed;
         top: 62px;
-        left: 0;
         right: 0;
         bottom: 0;
+        left: auto;
+        width: min(320px, 84vw);
         background: #ffffff;
         flex-direction: column;
-        padding: 12px 24px 40px;
-        overflow-y: auto;
-        transform: translateX(100%);
-        transition: transform .28s cubic-bezier(0.16, 1, 0.3, 1);
         gap: 0;
+        padding: 0 0 calc(32px + env(safe-area-inset-bottom));
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform .28s cubic-bezier(0.16, 1, 0.3, 1), visibility .28s;
         z-index: 99;
+        border-left: 1px solid var(--line);
         border-top: 1px solid var(--line);
-        box-shadow: -4px 0 24px rgba(0,0,0,0.08);
+        box-shadow: -8px 0 32px rgba(0, 0, 0, 0.12);
       }
 
       .navlinks.open {
         transform: translateX(0);
+        visibility: visible;
       }
 
       .navlinks a {
-        padding: 14px 8px;
-        font-size: 13px;
+        min-height: 48px;
+        padding: 12px 22px;
+        font-size: 12.5px;
         color: var(--text);
         border-bottom: 1px solid var(--line-soft);
-        border-right: none;
+        border-left: 3px solid transparent;
+        -webkit-tap-highlight-color: transparent;
       }
 
       .navlinks a:hover,
       .navlinks a.active {
         color: var(--cyan);
+        background: var(--panel);
         border-bottom-color: var(--line-soft);
-        border-left: 3px solid var(--cyan);
-        padding-left: 14px;
+        border-left-color: var(--cyan);
       }
 
-      .nav-toggle {
-        display: block;
+      /* lock page scroll while the drawer is open */
+      body.nav-open {
+        overflow: hidden;
       }
     }
 
@@ -1029,6 +1089,12 @@
       gap: 16px;
     }
 
+    /* A flex item defaults to min-width:auto, so this text column refused to shrink
+       below its longest word and pushed the card past the viewport at ~320px. */
+    .book-card > div:last-child {
+      min-width: 0;
+    }
+
     .book-spine {
       width: 6px;
       border-radius: 2px;
@@ -1590,20 +1656,23 @@
       <a href="index.html" class="brand">MEHEDI<span class="dot">·</span>HASSAN</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <ul class="navlinks" id="navLinks">
-        <li><a href="index.html" class="active"><span class="idx">00</span>Home</a></li>
-        <li><a href="research.html"><span class="idx">01</span>Research</a></li>
-        <li><a href="experience.html"><span class="idx">02</span>Experience</a></li>
-        <li><a href="publications.html"><span class="idx">03</span>Publications</a></li>
-        <li><a href="books.html"><span class="idx">04</span>Books</a></li>
-        <li><a href="projects.html"><span class="idx">05</span>Projects</a></li>
-        <li><a href="editorial.html"><span class="idx">06</span>Editorial</a></li>
-        <li><a href="startups.html"><span class="idx">07</span>Startups</a></li>
-        <li><a href="news.html"><span class="idx">08</span>News</a></li>
-        <li><a href="community.html"><span class="idx">09</span>Non-Profit</a></li>
-        <li><a href="contact.html"><span class="idx">10</span>Contact</a></li>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="publications.html">Publications</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="editorial.html">Editorial</a></li>
+        <li><a href="startups.html">Startups</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="community.html">Non-Profit</a></li>
+        <li><a href="passion.html">Passion</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </header>
+
+  <div class="nav-backdrop" id="navBackdrop"></div>
 
   <main id="main">
 
@@ -1627,8 +1696,8 @@
               <a class="btn btn-ghost" href="https://github.com/mhashiq" target="_blank" rel="noopener">GitHub</a>
             </div>
             <div class="hero-stats">
-              <div><span class="num">2,226+</span><span class="lbl">Citations</span></div>
-              <div><span class="num">25</span><span class="lbl">h-index</span></div>
+              <div><span class="num">2,331+</span><span class="lbl">Citations</span></div>
+              <div><span class="num">26</span><span class="lbl">h-index</span></div>
               <div><span class="num">109</span><span class="lbl">Publications</span></div>
               <div><span class="num">8</span><span class="lbl">Books Edited</span></div>
             </div>
@@ -1652,7 +1721,7 @@
               AI-driven medical imaging, computer vision, and digital health diagnostics for metabolic disorders, fatty
               liver disease, and chronic health conditions.</p>
             <p>He holds M.Sc. and B.Sc. degrees in Computer Science and Engineering and has authored peer-reviewed
-              scientific publications (2,226+ citations, h-index 25), edited 8 scholarly books with premier publishers,
+              scientific publications (2,331+ citations, h-index 26), edited 8 scholarly books with premier publishers,
               and holds two granted patents. He serves as Associate Editor and Academic Editor across leading Q1/Q2
               journals, and his current work bridges deep learning innovation with clinical workflow optimization to
               build scalable diagnostic tools.</p>
@@ -1665,8 +1734,6 @@
             <div class="row"><span>Location</span><span>Lubbock, Texas, USA</span></div>
             <div class="row"><span>ORCID</span><span>0000-0002-9890-0968</span></div>
             <div class="row"><span>Membership</span><span>IEEE Professional Member (2020–present)</span></div>
-            <div class="row"><span>Languages</span><span>English — full professional proficiency (DET 110/160)</span>
-            </div>
           </div>
         </div>
       </div>
@@ -1724,16 +1791,30 @@
     // mobile nav toggle
     const navToggle = document.getElementById('navToggle');
     const navLinks = document.getElementById('navLinks');
-    navToggle.addEventListener('click', () => {
-      const open = navLinks.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', open);
+    const navBackdrop = document.getElementById('navBackdrop');
+
+    function setNav(open) {
+      navLinks.classList.toggle('open', open);
+      navBackdrop.classList.toggle('open', open);
+      document.body.classList.toggle('nav-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
       navToggle.textContent = open ? '✕' : '☰';
+      navToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    }
+
+    navToggle.addEventListener('click', () => setNav(!navLinks.classList.contains('open')));
+    navBackdrop.addEventListener('click', () => setNav(false));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        setNav(false);
+        navToggle.focus();
+      }
     });
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', false);
-      navToggle.textContent = '☰';
-    }));
+    // never leave the drawer stuck open when resizing up to desktop
+    window.matchMedia('(min-width: 1101px)').addEventListener('change', e => {
+      if (e.matches) setNav(false);
+    });
 
     // Mark current page active in nav
     const curPage = location.pathname.split('/').pop() || 'index.html';
