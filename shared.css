@@ -3017,3 +3017,109 @@ body.lb-open {
   align-items: center;
   min-height: 36px;
 }
+
+
+/* ---------- featured organisation (non-profit) ---------- */
+.org-photo {
+  margin: 0;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel-2);
+}
+
+.org-photo img {
+  width: 100%;
+  aspect-ratio: 21 / 8;
+  object-fit: cover;
+  object-position: center 38%;
+  display: block;
+}
+
+.org-photo figcaption {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding: 9px 30px 10px;
+  border-top: 1px solid var(--line-soft);
+  background: var(--void);
+}
+
+/* impact narrative with a supporting photo */
+.impact-split {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 28px;
+  align-items: start;
+}
+
+.impact-split p {
+  margin: 0 0 14px;
+}
+
+.impact-split p:last-child {
+  margin-bottom: 0;
+}
+
+.impact-split figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.impact-split figure img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+}
+
+.impact-split figcaption {
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  padding: 9px 12px;
+  line-height: 1.5;
+  border-top: 1px solid var(--line-soft);
+  background: var(--void);
+}
+
+/* the reach line under the impact numbers */
+.org-where {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.org-where span {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--text-dim);
+  border: 1px solid var(--line-soft);
+  border-radius: 20px;
+  padding: 5px 11px;
+}
+
+@media (max-width: 760px) {
+  .org-photo img {
+    aspect-ratio: 16 / 10;
+  }
+
+  .org-photo figcaption {
+    padding: 9px 20px 10px;
+  }
+
+  .impact-split {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .impact-split figure {
+    max-width: 280px;
+  }
+}
