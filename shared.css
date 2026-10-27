@@ -215,8 +215,8 @@ p, li, td, th, figcaption, span, a {
   display: none;
 }
 
-/* Responsive mobile nav — slide-in drawer at ≤1140px */
-@media (max-width:1140px) {
+/* Responsive mobile nav — slide-in drawer at ≤1160px */
+@media (max-width:1160px) {
   .nav-toggle {
     display: flex;
   }
@@ -2649,7 +2649,7 @@ input:focus-visible {
 
 /* lightbox */
 /* Scroll lock for the lightbox. Deliberately NOT inside a media query --
-   body.nav-open is only defined below 1140px, so reusing it would let the
+   body.nav-open is only defined below 1160px, so reusing it would let the
    page scroll behind an open lightbox on desktop. */
 body.lb-open {
   overflow: hidden;
