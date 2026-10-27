@@ -347,7 +347,7 @@
       width: 22px;
       height: 2px;
       background: var(--cyan);
-      box-shadow: 0 0 8px rgba(69, 214, 192, 0.8);
+      box-shadow: 0 0 6px rgba(14, 142, 125, 0.45);
       transition: top .1s linear;
     }
 
@@ -590,45 +590,6 @@
 
     /* ---------- hero scan graphic ---------- */
     /* ---------- hero speaker photo ---------- */
-    .hero-photo-card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
-      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    }
-
-    .hero-photo-card:hover {
-      border-color: rgba(69, 214, 192, 0.4);
-      box-shadow: 0 16px 40px rgba(69, 214, 192, 0.15);
-      transform: translateY(-3px);
-    }
-
-    .hero-photo-wrapper {
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      background: #0d131a;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-    }
-
-    .hero-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
-      display: block;
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .hero-photo-card:hover .hero-photo {
-      transform: scale(1.04);
-    }
-
     /* ---------- about ---------- */
     .about-grid {
       display: grid;
@@ -989,7 +950,7 @@
     }
 
     .pub-row:hover {
-      background: rgba(69, 214, 192, 0.03);
+      background: rgba(14, 142, 125, 0.04);
     }
 
     @media (max-width:700px) {
@@ -1920,6 +1881,104 @@
         grid-template-columns: 1fr;
       }
     }
+    .hero-photo-card {
+      position: relative;
+      background: none;
+      border: none;
+      border-radius: 0;
+      padding: 0;
+      overflow: visible;
+      box-shadow: none;
+    }
+
+    /* Registration marks, set just outside the plate — the site already speaks in
+       rules, ticks and slice numbers, so the portrait is framed the same way a
+       print proof is rather than dropped in a card. */
+    .hero-photo-frame {
+      position: relative;
+    }
+
+    .hero-photo-frame::before,
+    .hero-photo-frame::after {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid var(--cyan);
+      pointer-events: none;
+      transition: top .35s cubic-bezier(.16, 1, .3, 1), left .35s cubic-bezier(.16, 1, .3, 1),
+        bottom .35s cubic-bezier(.16, 1, .3, 1), right .35s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .hero-photo-frame::before {
+      top: -7px;
+      left: -7px;
+      border-right: 0;
+      border-bottom: 0;
+    }
+
+    .hero-photo-frame::after {
+      bottom: -7px;
+      right: -7px;
+      border-left: 0;
+      border-top: 0;
+    }
+
+    .hero-photo-card:hover .hero-photo-frame::before {
+      top: -11px;
+      left: -11px;
+    }
+
+    .hero-photo-card:hover .hero-photo-frame::after {
+      bottom: -11px;
+      right: -11px;
+    }
+
+    .hero-photo-wrapper {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 3px;
+      overflow: hidden;
+      background: var(--panel-2);
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-photo-card:hover .hero-photo {
+      transform: scale(1.03);
+    }
+
+    /* credit plate, same leading rule as the section eyebrows */
+    .hero-photo-credit {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      line-height: 1.5;
+    }
+
+    .hero-photo-credit::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--cyan);
+      flex: none;
+    }
   </style>
 </head>
 
@@ -2001,11 +2060,16 @@
               <div><span class="num">8</span><span class="lbl">Books Edited</span></div>
             </div>
           </div>
-          <div class="hero-photo-card reveal">
-            <div class="hero-photo-wrapper">
-              <img src="images/mehedi_hassan_portrait.jpg" alt="Md. Mehedi Hassan in a Texas Tech University College of Human Sciences lab coat" class="hero-photo" width="738" height="738" />
+          <figure class="hero-photo-card reveal">
+            <div class="hero-photo-frame">
+              <div class="hero-photo-wrapper">
+                <img src="images/mehedi_hassan_portrait.jpg"
+                  alt="Md. Mehedi Hassan in a Texas Tech University College of Human Sciences lab coat"
+                  class="hero-photo" width="738" height="738" />
+              </div>
             </div>
-          </div>
+            <figcaption class="hero-photo-credit">Texas Tech University &middot; College of Human Sciences</figcaption>
+          </figure>
         </div>
       </div>
     </section>
