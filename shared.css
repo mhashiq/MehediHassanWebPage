@@ -215,8 +215,8 @@ p, li, td, th, figcaption, span, a {
   display: none;
 }
 
-/* Responsive mobile nav — slide-in drawer at ≤1200px */
-@media (max-width:1200px) {
+/* Responsive mobile nav — slide-in drawer at ≤1140px */
+@media (max-width:1140px) {
   .nav-toggle {
     display: flex;
   }
@@ -2649,7 +2649,7 @@ input:focus-visible {
 
 /* lightbox */
 /* Scroll lock for the lightbox. Deliberately NOT inside a media query --
-   body.nav-open is only defined below 1200px, so reusing it would let the
+   body.nav-open is only defined below 1140px, so reusing it would let the
    page scroll behind an open lightbox on desktop. */
 body.lb-open {
   overflow: hidden;
@@ -3468,5 +3468,203 @@ body.lb-open {
 
   .op-card h3 {
     font-size: 17px;
+  }
+}
+
+
+/* ---------- homepage summary sections ---------- */
+.see-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 22px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--cyan);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(14, 142, 125, 0.3);
+  padding-bottom: 2px;
+  transition: border-color .18s ease;
+}
+
+.see-all:hover {
+  border-bottom-color: var(--cyan);
+}
+
+/* top 2% recognition strip */
+.rec-strip {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 0;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--void);
+}
+
+.rec-strip figure {
+  margin: 0;
+  padding: 18px;
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+}
+
+.rec-strip figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  display: block;
+}
+
+.rec-body {
+  padding: 24px 26px;
+}
+
+.rec-body h3 {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+.rec-body p {
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0 0 14px;
+  max-width: 62ch;
+}
+
+.rec-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.rec-facts span {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.03em;
+  color: var(--text-dim);
+  border: 1px solid var(--line-soft);
+  background: var(--panel);
+  border-radius: 20px;
+  padding: 5px 11px;
+}
+
+/* compact book row */
+.hm-books {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.hm-book {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.hm-book .cover {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--panel-2);
+  aspect-ratio: 3 / 4;
+  margin-bottom: 10px;
+}
+
+.hm-book .cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .3s ease;
+}
+
+.hm-book:hover .cover img {
+  transform: scale(1.04);
+}
+
+.hm-book h4 {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 4px;
+}
+
+.hm-book .pub {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-faint);
+}
+
+/* compact two-column list used for news + writing */
+.hm-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.hm-item {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cyan);
+  border-radius: 4px;
+  background: var(--panel);
+  padding: 18px 20px;
+}
+
+.hm-item .when {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.hm-item h4 {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 7px;
+}
+
+.hm-item p {
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .rec-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .rec-strip figure {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hm-books {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hm-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 420px) {
+  .hm-books {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 }

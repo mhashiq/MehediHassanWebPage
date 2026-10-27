@@ -232,8 +232,8 @@
       display: none;
     }
 
-    /* Responsive mobile nav — slide-in drawer at ≤1200px */
-    @media (max-width:1200px) {
+    /* Responsive mobile nav — slide-in drawer at ≤1140px */
+    @media (max-width:1140px) {
       .nav-toggle {
         display: flex;
       }
@@ -1621,6 +1621,202 @@
       outline: 2px solid var(--cyan);
       outline-offset: 2px;
     }
+    /* ---------- homepage summary sections ---------- */
+    .see-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 22px;
+      font-family: var(--mono);
+      font-size: 11.5px;
+      letter-spacing: 0.04em;
+      color: var(--cyan);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(14, 142, 125, 0.3);
+      padding-bottom: 2px;
+      transition: border-color .18s ease;
+    }
+
+    .see-all:hover {
+      border-bottom-color: var(--cyan);
+    }
+
+    /* top 2% recognition strip */
+    .rec-strip {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 0;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--void);
+    }
+
+    .rec-strip figure {
+      margin: 0;
+      padding: 18px;
+      background: var(--panel);
+      border-right: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+    }
+
+    .rec-strip figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 3px;
+      display: block;
+    }
+
+    .rec-body {
+      padding: 24px 26px;
+    }
+
+    .rec-body h3 {
+      font-family: var(--display);
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 10px;
+      line-height: 1.25;
+    }
+
+    .rec-body p {
+      color: var(--text-dim);
+      font-size: 14px;
+      line-height: 1.65;
+      margin: 0 0 14px;
+      max-width: 62ch;
+    }
+
+    .rec-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .rec-facts span {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.03em;
+      color: var(--text-dim);
+      border: 1px solid var(--line-soft);
+      background: var(--panel);
+      border-radius: 20px;
+      padding: 5px 11px;
+    }
+
+    /* compact book row */
+    .hm-books {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .hm-book {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .hm-book .cover {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--panel-2);
+      aspect-ratio: 3 / 4;
+      margin-bottom: 10px;
+    }
+
+    .hm-book .cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .3s ease;
+    }
+
+    .hm-book:hover .cover img {
+      transform: scale(1.04);
+    }
+
+    .hm-book h4 {
+      font-family: var(--display);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 0 0 4px;
+    }
+
+    .hm-book .pub {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-faint);
+    }
+
+    /* compact two-column list used for news + writing */
+    .hm-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .hm-item {
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--cyan);
+      border-radius: 4px;
+      background: var(--panel);
+      padding: 18px 20px;
+    }
+
+    .hm-item .when {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .hm-item h4 {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin: 0 0 7px;
+    }
+
+    .hm-item p {
+      color: var(--text-dim);
+      font-size: 13px;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @media (max-width: 860px) {
+      .rec-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .rec-strip figure {
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hm-books {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hm-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .hm-books {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+    }
   </style>
 </head>
 
@@ -1661,7 +1857,6 @@
         <li><a href="experience.html">Experience</a></li>
         <li><a href="books.html">Books</a></li>
         <li><a href="projects.html">Projects</a></li>
-        <li><a href="editorial.html">Editorial</a></li>
         <li><a href="startups.html">Startups</a></li>
         <li><a href="news.html">News</a></li>
         <li><a href="commentary.html">Commentary</a></li>
@@ -1739,6 +1934,111 @@
       </div>
     </section>
 
+    <!-- ================= RECOGNITION ================= -->
+    <section id="recognition">
+      <div class="wrap">
+        <div class="eyebrow"><span class="slice">SLICE 01b</span> &middot; Recognition</div>
+        <h2 class="h-title">World&rsquo;s Top 2% Scientists</h2>
+        <div class="rec-strip">
+          <figure>
+            <img src="images/news/top-2-percent-scientists-2026.webp"
+              alt="Top 2% Scientists 2026 certificate, verified from Elsevier and Stanford University data"
+              loading="lazy" width="2000" height="1635">
+          </figure>
+          <div class="rec-body">
+            <h3>Listed in the 2026 Stanford University &amp; Elsevier ranking</h3>
+            <p>The single-year citation-impact list covering roughly the top two per cent of researchers worldwide,
+              across every scientific field. The listing places the work in Artificial Intelligence &amp; Image
+              Processing.</p>
+            <div class="rec-facts">
+              <span>2026 &middot; single-year data</span>
+              <span>AI &amp; Image Processing</span>
+              <span>Global rank 184,513</span>
+              <span>8,326 in sub-field</span>
+            </div>
+            <a class="see-all" href="news.html">Read the announcement &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BOOKS ================= -->
+    <section id="books">
+      <div class="wrap">
+        <div class="eyebrow"><span class="slice">SLICE 04</span> &middot; Edited Books</div>
+        <h2 class="h-title">8 Scholarly Books</h2>
+        <div class="hm-books">
+          <a class="hm-book" href="books.html">
+            <div class="cover"><img src="images/book_1.jpg" alt="Deep Learning in Cardiovascular Health" loading="lazy"></div>
+            <h4>Deep Learning in Cardiovascular Health</h4>
+            <span class="pub">Springer &middot; 2026</span>
+          </a>
+          <a class="hm-book" href="books.html">
+            <div class="cover"><img src="images/book_2.jpg" alt="Transforming Global Healthcare" loading="lazy"></div>
+            <h4>Transforming Global Healthcare: AI and IoT</h4>
+            <span class="pub">CRC Press &middot; 2026</span>
+          </a>
+          <a class="hm-book" href="books.html">
+            <div class="cover"><img src="images/book_3.jpg" alt="Graph Neural Networks for Neurological Disorders" loading="lazy"></div>
+            <h4>Graph Neural Networks for Neurological Disorders</h4>
+            <span class="pub">Springer &middot; 2026</span>
+          </a>
+          <a class="hm-book" href="books.html">
+            <div class="cover"><img src="images/book_4.jpg" alt="Brain Networks in Neuroscience" loading="lazy"></div>
+            <h4>Brain Networks in Neuroscience</h4>
+            <span class="pub">River Publishers &middot; 2025</span>
+          </a>
+        </div>
+        <a class="see-all" href="books.html">All 8 books &amp; 11 chapters &rarr;</a>
+      </div>
+    </section>
+
+    <!-- ================= WRITING ================= -->
+    <section id="writing">
+      <div class="wrap">
+        <div class="eyebrow"><span class="slice">SLICE 08b</span> &middot; Opinion &amp; Commentary</div>
+        <h2 class="h-title">Writing for the Public</h2>
+        <p class="lead">Op-eds in Bangladeshi national media, written in Bengali.</p>
+        <div class="hm-list">
+          <div class="hm-item">
+            <span class="when">14 Oct 2026 &middot; Nagorik Online</span>
+            <h4>From vaccines to mosquito control: how far has Bangladesh progressed in dengue research?</h4>
+            <p>What the research on vaccines, insecticide resistance, serotypes and rapid tests can and cannot carry on
+              its own.</p>
+          </div>
+          <div class="hm-item">
+            <span class="when">17 Aug 2026 &middot; Nagorik Online &amp; Dhaka Today</span>
+            <h4>Is the social media comment box changing the course of politics in Bangladesh?</h4>
+            <p>Why high online visibility should not be mistaken for national public opinion.</p>
+          </div>
+        </div>
+        <a class="see-all" href="commentary.html">All commentary &rarr;</a>
+      </div>
+    </section>
+
+    <!-- ================= NEWS ================= -->
+    <section id="news">
+      <div class="wrap">
+        <div class="eyebrow"><span class="slice">SLICE 08</span> &middot; News &amp; Media</div>
+        <h2 class="h-title">Latest Updates</h2>
+        <div class="hm-list">
+          <div class="hm-item">
+            <span class="when">October 2026 &middot; Conference</span>
+            <h4>IEEE HealthCom 2026, New York</h4>
+            <p>Presented the first Ph.D. work &mdash; lightweight 3D liver segmentation &mdash; an industry-linked
+              collaboration with Stanford University and Emory University.</p>
+          </div>
+          <div class="hm-item">
+            <span class="when">August 2026 &middot; Media coverage</span>
+            <h4>DermaViGNet featured by Adelaide University and EurekAlert!</h4>
+            <p>Explainable AI for skin disease diagnosis, reaching 98% accuracy across five conditions including
+              Stevens-Johnson Syndrome.</p>
+          </div>
+        </div>
+        <a class="see-all" href="news.html">All news &amp; coverage &rarr;</a>
+      </div>
+    </section>
+
     <!-- ================= CONTACT ================= -->
     <section id="contact" style="border-bottom:none;">
       <div class="wrap">
@@ -1812,7 +2112,7 @@
       }
     });
     // never leave the drawer stuck open when resizing up to desktop
-    window.matchMedia('(min-width: 1201px)').addEventListener('change', e => {
+    window.matchMedia('(min-width: 1141px)').addEventListener('change', e => {
       if (e.matches) setNav(false);
     });
 
