@@ -3249,19 +3249,60 @@ body.lb-open {
   margin-top: 16px;
 }
 
-/* news item with a photo */
+/* news item with a photo — cropped to a landscape frame so a portrait
+   source does not run the length of the item; full image opens on click */
 .news-item .ni-photo {
-  margin: 12px 0 0;
+  position: relative;
+  margin: 14px 0 2px;
   border: 1px solid var(--line);
   border-radius: 4px;
   overflow: hidden;
-  max-width: 420px;
+  max-width: 460px;
   cursor: zoom-in;
 }
 
 .news-item .ni-photo img {
   width: 100%;
+  /* the intrinsic height attribute would otherwise win over aspect-ratio */
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center 14%;
   display: block;
+  transition: transform .35s ease;
+}
+
+.news-item .ni-photo:hover img {
+  transform: scale(1.03);
+}
+
+.news-item .ni-photo::after {
+  content: 'View full photo \2197';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(10, 14, 19, 0.72);
+  border-radius: 3px;
+  padding: 5px 9px;
+  opacity: 0;
+  transition: opacity .2s ease;
+  pointer-events: none;
+}
+
+.news-item .ni-photo:hover::after,
+.news-item .ni-photo:focus-visible::after {
+  opacity: 1;
+}
+
+@media (max-width: 520px) {
+  .news-item .ni-photo img {
+    aspect-ratio: 4 / 3;
+  }
 }
 
 .news-item .ni-photo figcaption {
