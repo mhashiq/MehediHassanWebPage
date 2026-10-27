@@ -47,7 +47,7 @@
         <h2 class="h-title">Beyond the Lab</h2>
         <p class="passion-lead">Three continents, seven countries, and a lot of highway. From a computer science
           department in <strong>Khulna</strong> to the Himalayas at <strong>Ladakh</strong>, the Kashmir Valley, the
-          Kerala backwaters, and now the long empty coast roads of <strong>South Australia</strong>. This page is the
+          Kerala backwaters, the long empty coast roads of <strong>South Australia</strong>, and now West Texas and the US north-east. This page is the
           part of the work that does not fit in a citation count &mdash; the places, the drives, the fishing, and the
           volunteering I do when the models are training.</p>
 
@@ -153,6 +153,10 @@
         note: 'Ph.D. research at Texas Tech University, College of Health &amp; Human Sciences \u2014 AI-driven medical imaging for chronic metabolic conditions.' },
       { city: 'Dallas, Texas', country: 'United States', flag: '\u{1F1FA}\u{1F1F8}', lat: 32.7767, lng: -96.7970,
         note: 'North Texas.' },
+      { city: 'New York City', country: 'United States', flag: '\u{1F1FA}\u{1F1F8}', lat: 40.7128, lng: -74.0060,
+        note: 'Presented my first Ph.D. work at IEEE HealthCom 2026 \u2014 lightweight 3D liver segmentation, built with Stanford and Emory.' },
+      { city: 'Niagara Falls', country: 'United States', flag: '\u{1F1FA}\u{1F1F8}', lat: 43.0828, lng: -79.0742,
+        note: 'The American and Bridal Veil falls on the New York side, lit in colour after dark.' },
 
       // --- elsewhere ---
       { city: 'Dubai', country: 'United Arab Emirates', flag: '\u{1F1E6}\u{1F1EA}', lat: 25.2048, lng: 55.2708,
@@ -173,6 +177,8 @@
     };
 
     const PHOTOS = [
+      { src: 'images/travel/niagara-falls.webp', caption: 'Niagara Falls after dark \u2014 New York State' },
+      { src: 'images/news/healthcom-2026-new-york.webp', caption: 'IEEE HealthCom 2026 poster session \u2014 New York City' },
       { src: 'images/travel/yorke-peninsula-road-trip.jpg', caption: 'Yorke Peninsula road trip route \u2014 1,630 km, South Australia' },
       { src: 'images/travel/fishing-south-australia.jpg', caption: 'Fishing the South Australian coast' },
       { src: 'images/travel/blood-donation-adelaide-1.jpg', caption: 'Blood donation \u2014 Red Cross Lifeblood, Adelaide' },
@@ -412,7 +418,8 @@
       if (fig) openLb(+fig.dataset.i);
     });
     // the trip map is the first gallery entry, so reuse the same lightbox
-    document.getElementById('tripFig').addEventListener('click', () => openLb(0));
+    document.getElementById('tripFig').addEventListener('click', () =>
+      openLb(PHOTOS.findIndex(p => p.src === TRIP.image)));
     host.addEventListener('keydown', e => {
       const fig = e.target.closest('.gallery-item');
       if (fig && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openLb(+fig.dataset.i); }

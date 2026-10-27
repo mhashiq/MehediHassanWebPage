@@ -45,9 +45,73 @@
         <div class="eyebrow"><span class="slice">SLICE 08</span> &middot; News &amp; Media Coverage</div>
         <h2 class="h-title">Press &amp; Updates</h2>
 
+        <div class="news-announce">
+          <div class="na-ribbon"><span class="dot" aria-hidden="true"></span>Announcement &middot; 2026</div>
+          <div class="na-grid">
+            <div class="na-text">
+              <h3>Named in the world&rsquo;s top 2% of scientists</h3>
+              <p>Listed in the <strong>2026 Top 2% Scientists</strong> ranking compiled by <strong>Stanford
+                  University</strong> and published by <strong>Elsevier</strong> &mdash; the single-year citation-impact
+                list that covers roughly the top two per cent of researchers worldwide across every scientific
+                field.</p>
+              <p>The listing places the work in <em>Artificial Intelligence &amp; Image Processing</em>, under the
+                broader field of Information &amp; Communication Technologies.</p>
+              <div class="na-rows">
+                <div><span>Listed year</span><span>2026 &middot; single-year data</span></div>
+                <div><span>Main field</span><span>Information &amp; Communication Technologies</span></div>
+                <div><span>Sub-field</span><span>Artificial Intelligence &amp; Image Processing</span></div>
+                <div><span>Global rank</span><span>184,513</span></div>
+                <div><span>Rank in sub-field</span><span>8,326</span></div>
+                <div><span>Scopus h-index</span><span>16 &middot; hm-index 4</span></div>
+              </div>
+              <p class="na-note">The h-index shown on the certificate is Scopus-based, which is how the Stanford
+                &amp; Elsevier list is computed. The Google&nbsp;Scholar h-index of 27 quoted elsewhere on this site
+                counts a wider set of sources, so the two numbers are measuring different things.</p>
+            </div>
+            <figure class="na-figure" id="naFig">
+              <img src="images/news/top-2-percent-scientists-2026.webp"
+                alt="Top 2% Scientists 2026 certificate for Md. Mehedi Hassan, verified from Elsevier and Stanford University data"
+                loading="lazy" width="2000" height="1635">
+            </figure>
+          </div>
+        </div>
+
+        <h3 class="news-year">2026</h3>
+        <div class="news-list">
+          <div class="news-item">
+            <span class="tag">Conference</span>
+            <div>
+              <h3>IEEE HealthCom 2026, New York</h3>
+              <p>Presented my first Ph.D. research work &mdash; <em>Tri-Planar Fourier Context Learning for
+                  Lightweight 3D Liver Segmentation</em> &mdash; at the IEEE International Conference on E-health
+                Networking, Application &amp; Services, held 19&ndash;21 October 2026 in New York City. The paper is an
+                industry-linked collaboration with <strong>Stanford University</strong> and <strong>Emory
+                  University</strong>, and the method targets accurate 3D liver segmentation at a fraction of the usual
+                computational cost. With thanks to my supervisor for the guidance and the faith in the work.</p>
+              <figure class="ni-photo" data-full="images/news/healthcom-2026-new-york.webp">
+                <img src="images/news/healthcom-2026-new-york.webp"
+                  alt="Md. Mehedi Hassan with his supervisor beside the VesselMambaLite poster at IEEE HealthCom 2026 in New York"
+                  loading="lazy" width="1009" height="1267">
+                <figcaption>With my supervisor at the poster session &mdash; IEEE HealthCom 2026, New York City</figcaption>
+              </figure>
+              <a href="https://healthcom2026.ieee-healthcom.org/" target="_blank" rel="noopener">Conference site
+                &rarr;</a>
+            </div>
+          </div>
+          <div class="news-item">
+            <span class="tag">Recognition</span>
+            <div>
+              <h3>Top 2% Scientists 2026 &mdash; Stanford University &amp; Elsevier</h3>
+              <p>Included in the single-year citation-impact ranking for Artificial Intelligence &amp; Image
+                Processing. See the announcement above.</p>
+              <a href="https://topscinet.com/" target="_blank" rel="noopener">About the list &rarr;</a>
+            </div>
+          </div>
+        </div>
+
         <div class="news-feature">
           <div class="nf-head">
-            <span class="nf-flag">Featured &middot; August 2026</span>
+            <span class="nf-flag">In the media &middot; August 2026</span>
             <h3><em>DermaViGNet</em> &mdash; explainable AI for skin disease diagnosis</h3>
             <p>A hybrid Vision Transformer and CNN framework for skin disease classification, built with explainable
               AI so clinicians can see which regions of an image drove a diagnosis. Trained and validated on nearly
@@ -145,6 +209,12 @@
     </section>
   </main>
 
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-close" id="lbClose" aria-label="Close image">&#10005;</button>
+    <img id="lbImg" src="" alt="">
+    <div class="lb-cap" id="lbCap"></div>
+  </div>
+
   <footer>
     <p>&copy; <span id="year"></span> Md. Mehedi Hassan &middot; <a href="index.html">Home</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="#top">Back to top &uarr;</a></p>
   </footer>
@@ -182,6 +252,42 @@
       if (a.getAttribute('href') === curPage) a.classList.add('active');
     });
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---- lightbox for the certificate and conference photo ----
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbCap = document.getElementById('lbCap');
+
+    function openLb(src, cap) {
+      lbImg.src = src;
+      lbImg.alt = cap;
+      lbCap.textContent = cap;
+      lb.classList.add('open');
+      lb.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('nav-open');
+      document.getElementById('lbClose').focus();
+    }
+
+    function closeLb() {
+      lb.classList.remove('open');
+      lb.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('nav-open');
+    }
+
+    document.querySelectorAll('.na-figure, .ni-photo').forEach(fig => {
+      const img = fig.querySelector('img');
+      if (!img) return;
+      fig.addEventListener('click', () => {
+        const cap = fig.querySelector('figcaption');
+        openLb(img.getAttribute('src'), cap ? cap.textContent.trim() : img.alt);
+      });
+    });
+
+    document.getElementById('lbClose').addEventListener('click', closeLb);
+    lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && lb.classList.contains('open')) closeLb();
+    });
     // reveal on scroll
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
