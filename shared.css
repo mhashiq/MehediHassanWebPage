@@ -2473,6 +2473,16 @@ input:focus-visible {
   box-shadow: 0 0 0 1px var(--cyan), 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+/* a landmark inside a city already pinned: smaller and hollow, so the
+   city it belongs to still reads as the primary marker */
+.pin.landmark {
+  width: 11px;
+  height: 11px;
+  background: #fff;
+  border: 3px solid var(--cyan);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
 .pin.home {
   background: var(--amber);
   box-shadow: 0 0 0 1px var(--amber), 0 2px 6px rgba(0, 0, 0, 0.3);

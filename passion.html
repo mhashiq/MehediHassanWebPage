@@ -57,7 +57,7 @@
           <div class="v-label">Places on the map</div>
           <div class="map-shell">
             <div id="travelmap" role="img" aria-label="World map showing places lived and worked"></div>
-            <div class="map-hint">Shaded countries are ones I&rsquo;ve visited &middot; amber pin is home &middot; click a pin or any card to move the map</div>
+            <div class="map-hint">Shaded countries are ones I&rsquo;ve visited &middot; amber pin is home &middot; hollow pins are landmarks &middot; click a pin or any card to move the map</div>
           </div>
         </div>
 
@@ -155,6 +155,15 @@
         note: 'North Texas.' },
       { city: 'New York City', country: 'United States', flag: '\u{1F1FA}\u{1F1F8}', lat: 40.7128, lng: -74.0060,
         note: 'Presented my first Ph.D. work at IEEE HealthCom 2026 \u2014 lightweight 3D liver segmentation, built with Stanford and Emory.' },
+      { city: 'Statue of Liberty', country: 'United States', flag: '\u{1F1FA}\u{1F1F8}', lat: 40.6892, lng: -74.0445,
+        kind: 'landmark', within: 'New York City',
+        note: 'Liberty Island in Upper New York Bay, seen from the harbour on a clear autumn morning.' },
+      { city: 'Brooklyn Bridge', country: 'United States', flag: '\u{1F1FA}\u{1F1F8}', lat: 40.7061, lng: -73.9969,
+        kind: 'landmark', within: 'New York City',
+        note: 'Looking across the East River at dusk, with the Lower Manhattan skyline and One World Trade behind it.' },
+      { city: 'Times Square', country: 'United States', flag: '\u{1F1FA}\u{1F1F8}', lat: 40.7580, lng: -73.9855,
+        kind: 'landmark', within: 'New York City',
+        note: 'Midtown Manhattan, at the crossing of Broadway and Seventh Avenue.' },
       { city: 'Niagara Falls, New York', country: 'United States', flag: '\u{1F1FA}\u{1F1F8}', lat: 43.0962, lng: -79.0377,
         note: 'The American and Bridal Veil falls, seen from the New York bank of the Niagara River.' },
 
@@ -168,7 +177,11 @@
       { city: 'Mal\u00e9', country: 'Maldives', flag: '\u{1F1F2}\u{1F1FB}', lat: 4.1755, lng: 73.5093,
         note: 'The Maldivian capital, a single dense island in the middle of the Indian Ocean.' },
       { city: 'Thailand', country: 'Thailand', flag: '\u{1F1F9}\u{1F1ED}', lat: 13.7563, lng: 100.5018,
-        note: 'Southeast Asia.' }
+        note: 'Southeast Asia.' },
+      { city: 'Hong Kong', country: 'Hong Kong', flag: '\u{1F1ED}\u{1F1F0}', lat: 22.3193, lng: 114.1694,
+        note: 'Harbour city on the Pearl River Delta, where the island towers meet the hills behind them.' },
+      { city: 'Malaysia', country: 'Malaysia', flag: '\u{1F1F2}\u{1F1FE}', lat: 3.1390, lng: 101.6869,
+        note: 'Peninsular Malaysia, on the Strait of Malacca side of Southeast Asia.' }
     ];
 
     // One trip worth its own panel.
@@ -182,6 +195,9 @@
 
     const PHOTOS = [
       { src: 'images/travel/niagara-falls.webp', caption: 'Niagara Falls after dark \u2014 on the Canada\u2013USA border' },
+      { src: 'images/travel/statue-of-liberty.webp', caption: 'The Statue of Liberty from the harbour \u2014 New York' },
+      { src: 'images/travel/brooklyn-bridge.webp', caption: 'Brooklyn Bridge at dusk, Lower Manhattan behind \u2014 New York' },
+      { src: 'images/travel/times-square.webp', caption: 'Times Square, Midtown Manhattan \u2014 New York' },
       { src: 'images/news/healthcom-2026-new-york.webp', caption: 'IEEE HealthCom 2026 poster session \u2014 New York City' },
       { src: 'images/travel/yorke-peninsula-road-trip.jpg', caption: 'Yorke Peninsula road trip route \u2014 1,630 km, South Australia' },
       { src: 'images/travel/fishing-south-australia.jpg', caption: 'Fishing the South Australian coast' },
@@ -248,10 +264,16 @@
       'Canada':               { short: 'Canada',     ne: 'Canada' },
       'United Arab Emirates': { short: 'UAE',        ne: 'United Arab Emirates' },
       'Maldives':             { short: 'Maldives',   ne: 'Maldives' },
-      'Thailand':             { short: 'Thailand',   ne: 'Thailand' }
+      'Thailand':             { short: 'Thailand',   ne: 'Thailand' },
+      'Hong Kong':            { short: 'Hong Kong',  ne: 'Hong Kong' },
+      'Malaysia':             { short: 'Malaysia',   ne: 'Malaysia' }
     };
     const meta = c => COUNTRY_META[c] || { short: c, ne: c };
     const flagOf = c => (PLACES.find(p => p.country === c) || {}).flag || '';
+    // the line under a place name — same text on the map popup and on the card
+    const subOf = p => p.home ? 'Home city'
+      : p.kind === 'landmark' ? `Landmark &middot; ${p.within}`
+      : p.country;
 
     // ---- map ----
     // No tile layer: the basemap is a public-domain Natural Earth outline served
@@ -284,10 +306,14 @@
     const markers = PLACES.map((p, i) => {
       const m = L.marker([p.lat, p.lng], {
         title: `${p.city}, ${p.country}`,
-        icon: L.divIcon({ className: '', html: `<div class="pin${p.home ? ' home' : ''}"></div>`, iconSize: [16, 16], iconAnchor: [8, 8] })
+        icon: L.divIcon({
+          className: '',
+          html: `<div class="pin${p.home ? ' home' : ''}${p.kind === 'landmark' ? ' landmark' : ''}"></div>`,
+          iconSize: [16, 16], iconAnchor: [8, 8]
+        })
       }).addTo(map);
       m.bindPopup(
-        `<b>${p.city}</b><span class="pc-meta">${p.country}</span>${p.note || ''}`,
+        `<b>${p.city}</b><span class="pc-meta">${subOf(p)}</span>${p.note || ''}`,
         { maxWidth: 260 }
       );
       m.on('click', () => highlight(i, false));
@@ -341,7 +367,7 @@
         <div class="place-grid">` + inCountry.map(({ p, i }) => `
           <button class="place-card" type="button" data-i="${i}">
             <span class="pc-where">${p.city}</span>
-            <span class="pc-country">${p.home ? 'Home city' : p.country}</span>
+            <span class="pc-country">${subOf(p)}</span>
             ${p.note ? `<p>${p.note}</p>` : ''}
           </button>`).join('') + `</div></div>`;
     }).join('');
