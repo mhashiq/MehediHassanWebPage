@@ -215,8 +215,8 @@ p, li, td, th, figcaption, span, a {
   display: none;
 }
 
-/* Responsive mobile nav — slide-in drawer at ≤1100px */
-@media (max-width:1100px) {
+/* Responsive mobile nav — slide-in drawer at ≤1200px */
+@media (max-width:1200px) {
   .nav-toggle {
     display: flex;
   }
@@ -2649,7 +2649,7 @@ input:focus-visible {
 
 /* lightbox */
 /* Scroll lock for the lightbox. Deliberately NOT inside a media query --
-   body.nav-open is only defined below 1100px, so reusing it would let the
+   body.nav-open is only defined below 1200px, so reusing it would let the
    page scroll behind an open lightbox on desktop. */
 body.lb-open {
   overflow: hidden;
@@ -3342,5 +3342,131 @@ body.lb-open {
 
   .na-text h3 {
     font-size: 20px;
+  }
+}
+
+
+/* ---------- opinion & commentary ---------- */
+/* Bengali headlines need a face that actually covers the script; IBM Plex Sans
+   does not, so without this the browser falls back to whatever the OS has. */
+.bn {
+  font-family: 'Noto Sans Bengali', 'IBM Plex Sans', sans-serif;
+  line-height: 1.75;
+}
+
+.op-banner {
+  margin: 0 0 40px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--panel);
+}
+
+.op-banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid var(--line);
+}
+
+.op-banner figcaption {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  padding: 12px 18px;
+  line-height: 1.6;
+}
+
+.op-theme + .op-theme {
+  margin-top: 48px;
+}
+
+.op-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.op-card {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cyan);
+  border-radius: 4px;
+  background: var(--panel);
+  padding: 24px 26px;
+}
+
+.op-card .op-date {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.op-card h3 {
+  margin: 0 0 6px;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.op-card .op-en {
+  font-family: var(--display);
+  font-size: 14.5px;
+  font-style: italic;
+  color: var(--text-dim);
+  display: block;
+  margin-bottom: 14px;
+}
+
+.op-card p {
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0 0 16px;
+  max-width: 74ch;
+}
+
+.op-where {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.op-where a {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  color: var(--cyan);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: var(--void);
+  border-radius: 3px;
+  padding: 7px 12px;
+  transition: border-color .18s ease, background .18s ease;
+}
+
+.op-where a:hover {
+  border-color: var(--cyan);
+  background: var(--panel-2);
+}
+
+.op-where .op-also {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+}
+
+@media (max-width: 640px) {
+  .op-card {
+    padding: 20px 18px;
+  }
+
+  .op-card h3 {
+    font-size: 17px;
   }
 }

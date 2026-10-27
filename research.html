@@ -29,6 +29,7 @@
         <li><a href="editorial.html">Editorial</a></li>
         <li><a href="startups.html">Startups</a></li>
         <li><a href="news.html">News</a></li>
+        <li><a href="commentary.html">Commentary</a></li>
         <li><a href="community.html">Non-Profit</a></li>
         <li><a href="passion.html">Passion</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -182,7 +183,7 @@
       }
     });
     // never leave the drawer stuck open when resizing up to desktop
-    window.matchMedia('(min-width: 1101px)').addEventListener('change', e => {
+    window.matchMedia('(min-width: 1201px)').addEventListener('change', e => {
       if (e.matches) setNav(false);
     });
     const curPage = location.pathname.split('/').pop() || 'index.html';
