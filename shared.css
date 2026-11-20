@@ -141,7 +141,7 @@ p, li, td, th, figcaption, span, a {
   font-family: var(--mono);
   font-size: 13.5px;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.01em;
   display: flex;
   align-items: baseline;
   gap: 4px;
@@ -171,10 +171,10 @@ p, li, td, th, figcaption, span, a {
   gap: 4px;
   padding: 6px 10px;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   text-decoration: none;
   color: var(--text-dim);
   border-bottom: 2px solid transparent;
@@ -215,8 +215,8 @@ p, li, td, th, figcaption, span, a {
   display: none;
 }
 
-/* Responsive mobile nav — slide-in drawer at ≤1160px */
-@media (max-width:1160px) {
+/* Responsive mobile nav — slide-in drawer at ≤860px */
+@media (max-width:860px) {
   .nav-toggle {
     display: flex;
   }
@@ -268,7 +268,7 @@ p, li, td, th, figcaption, span, a {
   .navlinks a {
     min-height: 48px;
     padding: 12px 22px;
-    font-size: 12.5px;
+    font-size: 13.5px;
     color: var(--text);
     border-bottom: 1px solid var(--line-soft);
     border-left: 3px solid transparent;
@@ -317,11 +317,11 @@ p, li, td, th, figcaption, span, a {
 
 .ruler .label {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: 13px;
   color: var(--text-faint);
   writing-mode: vertical-rl;
   margin-bottom: 10px;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.01em;
 }
 
 .ruler .cursor {
@@ -343,9 +343,9 @@ p, li, td, th, figcaption, span, a {
 /* ---------- eyebrow / section labels ---------- */
 .eyebrow {
   font-family: var(--mono);
-  font-size: 11.5px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--cyan);
   display: flex;
   align-items: center;
@@ -368,7 +368,7 @@ p, li, td, th, figcaption, span, a {
 section {
   position: relative;
   z-index: 1;
-  padding: 90px 0;
+  padding: 56px 0;
   scroll-margin-top: 62px;
   border-bottom: 1px solid var(--line-soft);
   background: #ffffff;
@@ -380,7 +380,7 @@ section:nth-child(even) {
 
 @media (max-width:640px) {
   section {
-    padding: 60px 0;
+    padding: 40px 0;
   }
 }
 
@@ -422,10 +422,10 @@ p.lead {
 
 .hero-eyebrow {
   font-family: var(--mono);
-  font-size: 12.5px;
+  font-size: 13.5px;
   color: var(--text-dim);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   margin-bottom: 22px;
   display: flex;
   align-items: center;
@@ -496,8 +496,8 @@ p.hero-role strong {
 
 .btn {
   font-family: var(--mono);
-  font-size: 12.5px;
-  letter-spacing: 0.03em;
+  font-size: 13.5px;
+  letter-spacing: 0.01em;
   text-decoration: none;
   padding: 12px 20px;
   border-radius: var(--radius);
@@ -554,10 +554,10 @@ p.hero-role strong {
 
 .hero-stats .lbl {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 13px;
   color: var(--text-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  text-transform: none;
+  letter-spacing: 0.01em;
 }
 
 @media (max-width:640px) {
@@ -619,9 +619,9 @@ p.hero-role strong {
 .creds .row span:first-child {
   color: var(--text-faint);
   font-family: var(--mono);
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0.01em;
   padding-top: 2px;
 }
 
@@ -661,10 +661,10 @@ p.hero-role strong {
 
 .rcard .tag {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 13px;
   color: var(--amber);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
 }
 
 .rcard h3 {
@@ -702,12 +702,12 @@ p.hero-role strong {
 
 .feature-panel .badge {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 13px;
   color: var(--void);
   background: var(--cyan);
   padding: 5px 10px;
   border-radius: 20px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.01em;
   white-space: nowrap;
   font-weight: 700;
 }
@@ -741,9 +741,9 @@ p.hero-role strong {
 }
 
 .feature-panel .metrics span {
-  font-size: 9.5px;
+  font-size: 13px;
   color: var(--text-faint);
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 /* ---------- timeline ---------- */
@@ -776,9 +776,9 @@ p.hero-role strong {
 
 .tl-date {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--cyan);
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
   margin-bottom: 6px;
   display: block;
 }
@@ -830,7 +830,7 @@ p.hero-role strong {
 
 .edu-card .yrs {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-faint);
 }
 
@@ -888,15 +888,15 @@ p.hero-role strong {
 
 .chip {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.03em;
+  font-size: 13px;
+  letter-spacing: 0.01em;
   padding: 9px 14px;
   border: 1px solid var(--line);
   border-radius: 20px;
   cursor: pointer;
   background: transparent;
   color: var(--text-dim);
-  text-transform: uppercase;
+  text-transform: none;
   transition: all .15s ease;
 }
 
@@ -914,7 +914,7 @@ p.hero-role strong {
 
 .pub-count {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--text-faint);
   margin-bottom: 16px;
 }
@@ -975,16 +975,16 @@ p.hero-role strong {
 
 .p-venue {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 13px;
   color: var(--text-dim);
 }
 
 .p-venue .type {
   display: inline-block;
   margin-top: 6px;
-  font-size: 9.5px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--amber);
   border: 1px solid rgba(240, 166, 75, 0.35);
   padding: 2px 7px;
@@ -1094,7 +1094,7 @@ p.hero-role strong {
 
 .book-card .meta {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-faint);
   margin-bottom: 8px;
 }
@@ -1107,7 +1107,7 @@ p.hero-role strong {
 
 .book-card a {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--cyan);
   text-decoration: none;
 }
@@ -1148,18 +1148,18 @@ p.hero-role strong {
 
 .edit-row .role {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--cyan);
 }
 
 .edit-row .period {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-faint);
 }
 
 .edit-row .pub {
-  font-size: 12.5px;
+  font-size: 13.5px;
   color: var(--text-dim);
 }
 
@@ -1190,7 +1190,7 @@ p.hero-role strong {
 
 .award-year {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--cyan);
   flex: none;
   width: 52px;
@@ -1227,7 +1227,7 @@ p.hero-role strong {
   margin: 0;
   color: var(--text-faint);
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 13px;
 }
 
 /* ---------- projects ---------- */
@@ -1269,7 +1269,7 @@ p.hero-role strong {
   color: var(--text-faint);
   text-decoration: none;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   border: 1px solid var(--line);
   padding: 6px 10px;
   border-radius: 20px;
@@ -1295,7 +1295,7 @@ p.hero-role strong {
 
 .stack span {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 13px;
   color: var(--text-dim);
   border: 1px solid var(--line-soft);
   padding: 4px 9px;
@@ -1333,13 +1333,13 @@ p.hero-role strong {
 
 .venture-head .period {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--text-faint);
 }
 
 .venture-card .role {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--cyan);
   margin-bottom: 14px;
   display: block;
@@ -1394,8 +1394,8 @@ p.hero-role strong {
   min-height: 34px;
   padding: 0 12px;
   font-family: var(--mono);
-  font-size: 11.5px;
-  letter-spacing: 0.04em;
+  font-size: 13px;
+  letter-spacing: 0.01em;
   color: var(--cyan);
   text-decoration: none;
   border: 1px solid rgba(14, 142, 125, 0.35);
@@ -1410,7 +1410,7 @@ p.hero-role strong {
 
 .venture-title-row .period {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--text-faint);
   margin-left: auto;
 }
@@ -1438,10 +1438,10 @@ p.hero-role strong {
 
 .v-label {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-faint);
   display: flex;
   align-items: center;
@@ -1491,9 +1491,9 @@ p.hero-role strong {
 
 .v-metrics span {
   font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-faint);
   display: block;
   margin-top: 6px;
@@ -1530,8 +1530,8 @@ p.hero-role strong {
 
 .v-tl-item .when {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.05em;
+  font-size: 13px;
+  letter-spacing: 0.01em;
   color: var(--cyan);
   display: block;
   margin-bottom: 3px;
@@ -1582,7 +1582,7 @@ p.hero-role strong {
   display: block;
   margin-top: 9px;
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 13px;
   color: var(--cyan-dim);
   line-height: 1.5;
 }
@@ -1602,10 +1602,10 @@ p.hero-role strong {
 
 .v-sector h4 {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--cyan);
   margin: 0 0 8px;
 }
@@ -1687,10 +1687,10 @@ p.hero-role strong {
 
 .news-card .date {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 13px;
   color: var(--amber);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   margin-bottom: 10px;
 }
 
@@ -1711,7 +1711,7 @@ p.hero-role strong {
 
 .news-card a {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--cyan);
   text-decoration: none;
 }
@@ -1723,7 +1723,7 @@ p.hero-role strong {
 .news-note {
   margin-top: 20px;
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--text-faint);
   border-left: 2px solid var(--line);
   padding-left: 14px;
@@ -1750,10 +1750,10 @@ p.hero-role strong {
   align-items: center;
   gap: 8px;
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--cyan);
   margin-bottom: 12px;
 }
@@ -1812,9 +1812,9 @@ p.hero-role strong {
 
 .nf-facts span {
   font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-faint);
   display: block;
   margin-top: 5px;
@@ -1827,10 +1827,10 @@ p.hero-role strong {
 
 .nf-label {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-faint);
   display: flex;
   align-items: center;
@@ -1882,9 +1882,9 @@ p.hero-role strong {
 
 .nf-coverage .kind {
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-dim);
   border: 1px solid var(--line);
   border-radius: 20px;
@@ -1893,14 +1893,14 @@ p.hero-role strong {
 
 .nf-coverage .when {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-faint);
   margin-left: auto;
 }
 
 .nf-coverage .go {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--cyan);
 }
 
@@ -1910,9 +1910,9 @@ p.hero-role strong {
   align-items: center;
   gap: 14px;
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.01em;
   color: var(--text-faint);
   margin: 0 0 18px;
 }
@@ -1946,10 +1946,10 @@ p.hero-role strong {
 
 .news-item .tag {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--amber);
   padding-top: 3px;
 }
@@ -1972,7 +1972,7 @@ p.hero-role strong {
 
 .news-item a {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--cyan);
   text-decoration: none;
   border-bottom: 1px solid transparent;
@@ -2063,7 +2063,7 @@ p.hero-role strong {
 
 .comm-card .period {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 13px;
   color: var(--text-faint);
 }
 
@@ -2076,7 +2076,7 @@ p.hero-role strong {
 
 .comm-card .role {
   color: var(--cyan);
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-family: var(--mono);
   margin-bottom: 10px;
   display: block;
@@ -2129,10 +2129,10 @@ p.hero-role strong {
 
 .contact-list .k {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  text-transform: none;
+  letter-spacing: 0.01em;
 }
 
 .contact-list .v {
@@ -2173,7 +2173,7 @@ footer {
 
 footer p {
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 13px;
   color: var(--text-faint);
   margin: 0;
 }
@@ -2256,10 +2256,10 @@ input:focus-visible {
 
 .review-stat-card .lbl {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-dim);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  text-transform: none;
+  letter-spacing: 0.01em;
 }
 
 .review-table-wrapper {
@@ -2286,8 +2286,8 @@ input:focus-visible {
 
 .review-table th {
   font-family: var(--mono);
-  font-size: 11px;
-  text-transform: uppercase;
+  font-size: 13px;
+  text-transform: none;
   color: var(--text-faint);
   font-weight: 600;
   background: var(--panel);
@@ -2306,10 +2306,10 @@ input:focus-visible {
   display: inline-block;
   padding: 3px 8px;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
   border-radius: 3px;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .q-badge.q1 {
@@ -2338,7 +2338,7 @@ input:focus-visible {
 
 .if-badge {
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 600;
   color: var(--text);
 }
@@ -2385,9 +2385,9 @@ input:focus-visible {
 
 .pt-stats span {
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-faint);
   display: block;
   margin-top: 8px;
@@ -2415,9 +2415,9 @@ input:focus-visible {
 
 .map-hint {
   font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-faint);
   padding: 12px 16px;
   border-top: 1px solid var(--line);
@@ -2469,9 +2469,9 @@ input:focus-visible {
 
 .leaflet-popup-content .pc-meta {
   font-family: var(--mono);
-  font-size: 10.5px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0.01em;
   color: var(--cyan);
   display: block;
   margin-bottom: 6px;
@@ -2523,9 +2523,9 @@ input:focus-visible {
 
 .place-card .pc-country {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--cyan);
   display: block;
   margin-bottom: 10px;
@@ -2533,7 +2533,7 @@ input:focus-visible {
 
 .place-card .pc-years {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 13px;
   color: var(--text-faint);
   display: block;
   margin-bottom: 8px;
@@ -2583,9 +2583,9 @@ input:focus-visible {
   bottom: 0;
   padding: 18px 12px 9px;
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: #fff;
   text-align: left;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
@@ -2603,7 +2603,7 @@ input:focus-visible {
   padding: 40px 24px;
   text-align: center;
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--text-faint);
   line-height: 1.7;
 }
@@ -2648,7 +2648,7 @@ body.lb-open {
   right: 0;
   text-align: center;
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: 13.5px;
   color: rgba(255, 255, 255, 0.85);
   padding: 0 24px;
 }
@@ -2684,10 +2684,10 @@ body.lb-open {
 
 .hobby-card .hc-kind {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--amber);
   display: block;
   margin-bottom: 9px;
@@ -2765,8 +2765,8 @@ body.lb-open {
   min-height: 46px;
   padding: 0 14px;
   font-family: var(--mono);
-  font-size: 11.5px;
-  letter-spacing: 0.03em;
+  font-size: 13px;
+  letter-spacing: 0.01em;
   text-align: left;
   color: var(--text-dim);
   background: var(--void);
@@ -2809,7 +2809,7 @@ body.lb-open {
 
 .region-chip .rc-n {
   flex: none;
-  font-size: 10px;
+  font-size: 13px;
   min-width: 22px;
   padding: 3px 0;
   text-align: center;
@@ -2836,7 +2836,7 @@ body.lb-open {
   }
 
   .region-chip {
-    font-size: 11px;
+    font-size: 13px;
     padding: 0 11px;
     gap: 7px;
   }
@@ -2852,10 +2852,10 @@ body.lb-open {
   align-items: center;
   gap: 10px;
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text);
   margin: 0 0 14px;
 }
@@ -2868,7 +2868,7 @@ body.lb-open {
 .country-head .n {
   font-weight: 400;
   color: var(--text-faint);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.01em;
 }
 
 .country-head::after {
@@ -2945,9 +2945,9 @@ body.lb-open {
 
 .trip-figures span {
   font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-faint);
   display: block;
   margin-top: 5px;
@@ -3007,9 +3007,9 @@ body.lb-open {
 
 .org-photo figcaption {
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-faint);
   padding: 9px 30px 10px;
   border-top: 1px solid var(--line-soft);
@@ -3049,9 +3049,9 @@ body.lb-open {
 
 .impact-split figcaption {
   font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-faint);
   padding: 9px 12px;
   line-height: 1.5;
@@ -3069,7 +3069,7 @@ body.lb-open {
 
 .org-where span {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 13px;
   color: var(--text-dim);
   border: 1px solid var(--line-soft);
   border-radius: 20px;
@@ -3110,10 +3110,10 @@ body.lb-open {
   background: var(--cyan);
   color: #fff;
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   padding: 8px 20px;
   display: flex;
   align-items: center;
@@ -3171,7 +3171,7 @@ body.lb-open {
   gap: 14px;
   padding: 9px 14px;
   font-family: var(--mono);
-  font-size: 11.5px;
+  font-size: 13px;
   border-bottom: 1px solid var(--line-soft);
 }
 
@@ -3181,9 +3181,9 @@ body.lb-open {
 
 .na-rows span:first-child {
   color: var(--text-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 10px;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  font-size: 13px;
 }
 
 .na-rows span:last-child {
@@ -3212,7 +3212,7 @@ body.lb-open {
 
 .na-note {
   font-family: var(--mono);
-  font-size: 10.5px;
+  font-size: 13px;
   color: var(--text-faint);
   line-height: 1.6;
   border-left: 2px solid var(--line);
@@ -3253,9 +3253,9 @@ body.lb-open {
   top: 10px;
   right: 10px;
   font-family: var(--mono);
-  font-size: 9.5px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: #fff;
   background: rgba(10, 14, 19, 0.72);
   border-radius: 3px;
@@ -3278,7 +3278,7 @@ body.lb-open {
 
 .news-item .ni-photo figcaption {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 13px;
   color: var(--text-faint);
   padding: 8px 10px;
   border-top: 1px solid var(--line-soft);
@@ -3332,7 +3332,7 @@ body.lb-open {
 
 .op-banner figcaption {
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-faint);
   padding: 12px 18px;
   line-height: 1.6;
@@ -3358,9 +3358,9 @@ body.lb-open {
 
 .op-card .op-date {
   font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-faint);
   display: block;
   margin-bottom: 10px;
@@ -3398,8 +3398,8 @@ body.lb-open {
 
 .op-where a {
   font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.03em;
+  font-size: 13px;
+  letter-spacing: 0.01em;
   color: var(--cyan);
   text-decoration: none;
   border: 1px solid var(--line);
@@ -3416,9 +3416,9 @@ body.lb-open {
 
 .op-where .op-also {
   font-family: var(--mono);
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0.01em;
   color: var(--text-faint);
 }
 
@@ -3440,8 +3440,8 @@ body.lb-open {
   gap: 6px;
   margin-top: 22px;
   font-family: var(--mono);
-  font-size: 11.5px;
-  letter-spacing: 0.04em;
+  font-size: 13px;
+  letter-spacing: 0.01em;
   color: var(--cyan);
   text-decoration: none;
   border-bottom: 1px solid rgba(14, 142, 125, 0.3);
@@ -3508,8 +3508,8 @@ body.lb-open {
 
 .rec-facts span {
   font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.03em;
+  font-size: 13px;
+  letter-spacing: 0.01em;
   color: var(--text-dim);
   border: 1px solid var(--line-soft);
   background: var(--panel);
@@ -3561,7 +3561,7 @@ body.lb-open {
 
 .hm-book .pub {
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 13px;
   color: var(--text-faint);
 }
 
@@ -3582,9 +3582,9 @@ body.lb-open {
 
 .hm-item .when {
   font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-faint);
   display: block;
   margin-bottom: 8px;
@@ -3713,10 +3713,10 @@ body.lb-open {
   gap: 10px;
   margin-top: 20px;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  text-transform: none;
   color: var(--text-faint);
   line-height: 1.5;
 }
@@ -3727,4 +3727,258 @@ body.lb-open {
   height: 1px;
   background: var(--cyan);
   flex: none;
+}
+
+/* ======================================================================
+   Audit refresh (Nov 2026)
+   - two font families: Source Serif 4 for headings, IBM Plex Sans for text
+   - no monospace labels, no decorative grid / ruler / photo corner marks
+   - calmer spacing, 17px body text
+   ====================================================================== */
+:root {
+  --display: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: var(--body);
+}
+
+body { font-size: 17px; }
+
+.bg-grid, .ruler { display: none !important; }
+.eyebrow .slice { display: none; }
+.eyebrow::before { display: none; }
+.eyebrow { font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+
+.brand { font-family: var(--display); font-size: 19px; letter-spacing: 0; }
+.navlinks a { font-size: 14.5px; padding: 6px 12px; }
+@media (max-width:860px) { .navlinks a { font-size: 16px; } }
+.btn { font-size: 15px; font-weight: 500; }
+
+h2.h-title { font-size: clamp(26px, 3.4vw, 36px); margin-bottom: 18px; }
+section:last-of-type { border-bottom: none; }
+
+/* hero: name, one line, buttons, small photo alongside */
+.hero { padding-top: 48px; padding-bottom: 44px; }
+.hero-grid { grid-template-columns: 1fr 300px; gap: 48px; }
+.hero-eyebrow { font-size: 14.5px; margin-bottom: 14px; }
+h1.hero-name { font-size: clamp(36px, 5vw, 54px); line-height: 1.08; }
+p.hero-role { font-size: 20px; margin-bottom: 24px; }
+.hero-ctas { margin-bottom: 30px; }
+.hero-stats .num { font-family: var(--body); font-size: 24px; font-weight: 600; }
+.hero-stats .lbl { font-size: 13.5px; }
+.stats-note { font-size: 13.5px; color: var(--text-faint); margin: 12px 0 0; }
+.stats-note a { color: var(--text-dim); }
+.hero-photo-frame::before, .hero-photo-frame::after { display: none; }
+.hero-photo-card { margin: 0; }
+.hero-photo-card .hero-photo { opacity: 1; }
+.hero-photo-credit::before { display: none; }
+@media (max-width:900px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 0; }
+  /* small photo above the name on phones, visible on the first screen */
+  .hero-photo-card { order: -1; width: 112px; margin-bottom: 18px; }
+  .hero-photo-credit { display: none; }
+}
+
+/* about */
+.about-grid .bio p { font-size: 17px; line-height: 1.7; max-width: 68ch; }
+.creds a { color: var(--cyan); }
+
+/* selected publications */
+.sel-pubs { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); counter-reset: sp; }
+.sel-pubs li { counter-increment: sp; position: relative; padding: 16px 0 16px 38px; border-bottom: 1px solid var(--line-soft); }
+.sel-pubs li::before { content: counter(sp) "."; position: absolute; left: 4px; top: 16px; color: var(--text-faint); font-weight: 600; }
+.sel-pubs span { display: block; }
+.sp-title { font-family: var(--display); font-weight: 600; font-size: 18px; line-height: 1.35; color: var(--text); }
+.sp-authors { font-size: 15px; color: var(--text-dim); margin-top: 4px; }
+.sp-venue { font-size: 15px; color: var(--text-dim); }
+.sp-links { margin-top: 6px; font-size: 14.5px; }
+.sp-links a { color: var(--cyan); font-weight: 500; }
+.sp-note { font-size: 13.5px; color: var(--text-faint); margin: 12px 0 0; }
+
+/* research themes on home: three plain cards */
+#research .card-grid { grid-template-columns: repeat(3, 1fr); }
+@media (max-width:760px) { #research .card-grid { grid-template-columns: 1fr; } }
+.rcard h3 { font-size: 19px; }
+.rcard p { font-size: 15.5px; }
+
+/* dated news list */
+.news-simple { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.news-simple li { display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--line-soft); font-size: 16px; line-height: 1.6; }
+.news-simple time { color: var(--text-faint); font-size: 14.5px; padding-top: 1px; }
+.news-simple a { color: var(--cyan); }
+.news-simple .bn { font-family: 'Noto Sans Bengali', var(--body); }
+.news-simple .tr { color: var(--text-dim); }
+@media (max-width:560px) { .news-simple li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* book covers: shown at (or below) their native 222px so they are never stretched */
+.hm-book .cover { aspect-ratio: 2 / 3; max-width: 222px; }
+.hm-book h4 { font-size: 15.5px; }
+.hm-book .pub { font-size: 13.5px; }
+
+/* affiliations: small text, no logos */
+.affil-list { margin: 0; padding-left: 20px; color: var(--text-dim); font-size: 15.5px; line-height: 1.7; }
+.affil-list li { margin-bottom: 6px; }
+.affil-list a { color: var(--text); }
+
+/* contact: one line of links */
+.contact-line { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 0; font-size: 16px; }
+.contact-line a { color: var(--cyan); font-weight: 500; }
+
+/* "More" page */
+.more-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.more-list li { border-bottom: 1px solid var(--line-soft); }
+.more-list a { display: block; padding: 16px 2px; text-decoration: none; }
+.more-list a strong { font-family: var(--display); font-size: 19px; color: var(--text); display: block; }
+.more-list a span { color: var(--text-dim); font-size: 15.5px; }
+.more-list a:hover strong { color: var(--cyan); }
+
+footer p { font-size: 14px; }
+
+/* ---------- "More" dropdown in the top nav ---------- */
+.has-sub { position: relative; }
+.sub-toggle {
+  display: flex; align-items: center; gap: 5px;
+  font: inherit; font-family: var(--body); font-size: 14.5px; font-weight: 500;
+  color: var(--text-dim); background: none; border: 0;
+  border-bottom: 2px solid transparent;
+  padding: 6px 12px; cursor: pointer; line-height: 1.6;
+}
+.sub-toggle:hover, .sub-toggle.active, .has-sub.open > .sub-toggle { color: var(--cyan); }
+.sub-toggle.active { border-bottom-color: var(--cyan); }
+.sub-toggle .caret { font-size: 11px; transition: transform .18s ease; }
+.has-sub.open .caret { transform: rotate(180deg); }
+.subnav { list-style: none; margin: 0; padding: 6px 0; }
+
+@media (min-width:861px) {
+  .subnav {
+    position: absolute; top: calc(100% + 8px); right: 0; min-width: 240px;
+    background: #fff; border: 1px solid var(--line); border-radius: 6px;
+    box-shadow: 0 10px 30px rgba(17, 26, 33, 0.12);
+    opacity: 0; visibility: hidden; transform: translateY(-4px);
+    transition: opacity .16s ease, transform .16s ease, visibility .16s;
+    z-index: 120;
+  }
+  /* small hover bridge so the menu doesn't close in the gap */
+  .subnav::before { content: ''; position: absolute; left: 0; right: 0; top: -10px; height: 10px; }
+  .has-sub:hover .subnav, .has-sub:focus-within .subnav, .has-sub.open .subnav {
+    opacity: 1; visibility: visible; transform: none;
+  }
+  .subnav a {
+    display: block; padding: 9px 16px; border-bottom: 0 !important;
+    font-size: 15px; color: var(--text);
+  }
+  .subnav a:hover, .subnav a.active { background: var(--panel); color: var(--cyan); }
+  .subnav li:last-child a { border-top: 1px solid var(--line-soft) !important; color: var(--text-dim); font-size: 14px; }
+}
+
+@media (max-width:860px) {
+  .sub-toggle {
+    width: 100%; justify-content: space-between; min-height: 48px;
+    padding: 12px 22px; font-size: 16px; color: var(--text);
+    border-bottom: 1px solid var(--line-soft); border-left: 3px solid transparent;
+  }
+  .sub-toggle.active { border-bottom-color: var(--line-soft); border-left-color: var(--cyan); }
+  .subnav { display: none; padding: 0; background: var(--panel); }
+  .has-sub.open .subnav { display: block; }
+  .subnav a { padding-left: 38px !important; font-size: 15px !important; }
+}
+.sub-toggle .caret {
+  width: 7px; height: 7px; flex: none;
+  border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+}
+.has-sub.open .caret { transform: translateY(1px) rotate(-135deg); }
+
+/* ---------- hero metrics: one compact line ---------- */
+.stat-line {
+  display: flex; flex-wrap: wrap; align-items: baseline;
+  gap: 4px 0; margin: 0;
+  font-size: 15px; color: var(--text-dim);
+}
+.stat-line span { white-space: nowrap; }
+.stat-line span + span::before,
+.stat-line a::before { content: '·'; margin: 0 10px; color: var(--line); }
+.stat-line b { font-family: var(--display); font-size: 19px; font-weight: 700; color: var(--text); margin-right: 3px; }
+.stat-line a { font-size: 13.5px; color: var(--text-faint); text-decoration: none; white-space: nowrap; }
+.stat-line a:hover { color: var(--cyan); }
+.stat-line a::before { display: inline-block; text-decoration: none; }
+@media (max-width:560px) {
+  .stat-line { display: grid; grid-template-columns: auto auto; justify-content: start; gap: 4px 28px; }
+  .stat-line span + span::before, .stat-line a::before { display: none; }
+  .stat-line a { grid-column: 1 / -1; margin-top: 2px; }
+}
+.stat-line a { flex-basis: 100%; margin-top: 2px; }
+.stat-line a::before { display: none; }
+
+/* ---------- world model figure (home) ---------- */
+.wm-fig { margin: 0 0 36px; padding: 24px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.wm-title { font-family: var(--display); font-size: 20px; font-weight: 600; margin: 0 0 18px; }
+.wm-flow { display: grid; grid-template-columns: 1fr 22px 1fr 22px 1fr 22px 1fr; align-items: stretch; }
+.wm-stage { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.wm-step { margin: 0 0 4px; font-size: 14.5px; font-weight: 600; color: var(--text); line-height: 1.35; display: flex; gap: 8px; }
+.wm-step span {
+  flex: none; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--cyan); color: var(--cyan);
+  font-size: 13px; display: inline-flex; align-items: center; justify-content: center;
+}
+.wm-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.wm-list li, .wm-box {
+  border: 1px solid var(--line); border-radius: 4px; padding: 8px 10px; background: var(--panel);
+  font-size: 14.5px; line-height: 1.35; color: var(--text);
+}
+.wm-list b, .wm-box b { font-weight: 600; }
+.wm-list small, .wm-box small { display: block; font-size: 13px; color: var(--text-dim); margin-top: 2px; }
+.wm-key { border-color: var(--cyan); background: rgba(14,142,125,.07); font-weight: 600; }
+.wm-note { margin: 2px 0 0; font-size: 13px; color: var(--text-faint); line-height: 1.45; }
+.wm-time, .wm-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.wm-time i, .wm-tags i {
+  font-style: normal; font-size: 13px; color: var(--text-dim); border: 1px solid var(--line);
+  border-radius: 3px; padding: 1px 6px; background: #fff;
+}
+.wm-time i + i::before { content: '→ '; color: var(--text-faint); }
+/* connectors */
+.wm-arrow { position: relative; }
+.wm-arrow::before { content: ''; position: absolute; top: 50%; left: 3px; right: 6px; border-top: 1.5px solid var(--text-faint); }
+.wm-arrow::after {
+  content: ''; position: absolute; top: calc(50% - 4px); right: 3px;
+  border: 5px solid transparent; border-left: 6px solid var(--text-faint); border-right: 0; transform: translateY(-1px);
+}
+.wm-down { height: 12px; position: relative; }
+.wm-down::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 4px; border-left: 1.5px solid var(--text-faint); }
+.wm-down::after {
+  content: ''; position: absolute; left: calc(50% - 4px); bottom: 0;
+  border: 4.5px solid transparent; border-top: 5px solid var(--text-faint); border-bottom: 0;
+}
+.wm-fig figcaption { margin-top: 16px; font-size: 13.5px; color: var(--text-faint); }
+
+@media (max-width: 980px) {
+  .wm-flow { grid-template-columns: 1fr; }
+  .wm-arrow { height: 26px; }
+  .wm-arrow::before { top: 3px; bottom: 9px; left: 50%; right: auto; border-top: 0; border-left: 1.5px solid var(--text-faint); }
+  .wm-arrow::after { top: auto; bottom: 3px; right: auto; left: calc(50% - 5px); transform: none;
+    border: 5px solid transparent; border-top: 6px solid var(--text-faint); border-bottom: 0; }
+  .wm-fig { padding: 18px; }
+}
+
+/* ---------- world model prompt + popup ---------- */
+.wm-prompt {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 20px;
+  margin: 0 0 28px; padding: 14px 18px; border: 1px solid var(--line); border-radius: 6px; background: #fff;
+}
+.wm-prompt p { margin: 0; font-size: 16px; color: var(--text); }
+.wm-prompt .btn { cursor: pointer; background: #fff; font-family: var(--body); }
+.wm-dialog {
+  width: min(1120px, calc(100vw - 32px)); max-height: calc(100vh - 48px);
+  padding: 0; border: 1px solid var(--line); border-radius: 8px; background: #fff; overflow: auto;
+}
+.wm-dialog::backdrop { background: rgba(17, 26, 33, .45); }
+.wm-dialog .wm-fig { margin: 0; border: 0; padding: 26px 28px 28px; }
+.wm-dialog .wm-title { padding-right: 40px; }
+.wm-close {
+  position: sticky; top: 10px; float: right; margin: 10px 10px 0 0; z-index: 2;
+  width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 4px; background: #fff;
+  font-size: 16px; color: var(--text-dim); cursor: pointer;
+}
+.wm-close:hover { color: var(--text); border-color: var(--text-faint); }
+@media (max-width: 560px) {
+  .wm-dialog { width: calc(100vw - 16px); max-height: calc(100vh - 16px); }
+  .wm-dialog .wm-fig { padding: 18px 16px 20px; }
 }
