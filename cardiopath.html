@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>CardioPath: ECG World Model That Forecasts the Next ECG | Md. Mehedi Hassan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CardioPath, developed by Md. Mehedi Hassan, is an ECG trajectory world model: it reads a 12-lead ECG and forecasts how the next ECG will look, from 1 month to 2 years, with cited, calibrated results.">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://mehedihassan.site/cardiopath.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Md. Mehedi Hassan">
+  <meta property="og:url" content="https://mehedihassan.site/cardiopath.html">
+  <meta property="og:title" content="CardioPath: an ECG world model that forecasts the next ECG">
+  <meta property="og:description" content="CardioPath, developed by Md. Mehedi Hassan, is an ECG trajectory world model: it reads a 12-lead ECG and forecasts how the next ECG will look, from 1 month to 2 years, with cited, calibrated results.">
+  <meta property="og:image" content="https://mehedihassan.site/images/cardiopath/cardiopath-tour-poster.jpg">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="1000">
+  <meta property="og:video" content="https://mehedihassan.site/images/cardiopath/cardiopath-tour.mp4">
+  <meta property="og:video:type" content="video/mp4">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CardioPath: an ECG world model that forecasts the next ECG">
+  <meta name="twitter:description" content="CardioPath, developed by Md. Mehedi Hassan, is an ECG trajectory world model: it reads a 12-lead ECG and forecasts how the next ECG will look, from 1 month to 2 years, with cited, calibrated results.">
+  <meta name="twitter:image" content="https://mehedihassan.site/images/cardiopath/cardiopath-tour-poster.jpg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://mehedihassan.site/cardiopath.html#app",
+      "name": "CardioPath",
+      "alternateName": "CardioPath ECG trajectory world model",
+      "applicationCategory": "HealthApplication",
+      "applicationSubCategory": "Medical AI",
+      "operatingSystem": "Web",
+      "description": "A cardiovascular world model that reads a 12-lead ECG, chest X-ray and chest CT, combines them in a patient record, and forecasts ECG findings from 1 month to 2 years.",
+      "url": "https://mehedihassan.site/cardiopath.html",
+      "image": "https://mehedihassan.site/images/cardiopath/answer.webp",
+      "screenshot": [
+        "https://mehedihassan.site/images/cardiopath/start.webp",
+        "https://mehedihassan.site/images/cardiopath/answer.webp",
+        "https://mehedihassan.site/images/cardiopath/forecast.webp",
+        "https://mehedihassan.site/images/cardiopath/ecg-attention.webp",
+        "https://mehedihassan.site/images/cardiopath/findings.webp",
+        "https://mehedihassan.site/images/cardiopath/xray-heatmap.webp",
+        "https://mehedihassan.site/images/cardiopath/ct-axial.webp",
+        "https://mehedihassan.site/images/cardiopath/patient-overview.webp"
+      ],
+      "author": {
+        "@id": "https://mehedihassan.site/#person"
+      },
+      "creator": {
+        "@id": "https://mehedihassan.site/#person"
+      },
+      "keywords": "world model, ECG world model, medical AI, cardiovascular AI, ECG forecasting, conformal prediction",
+      "contributor": {
+        "@type": "Person",
+        "name": "Shariful Islam",
+        "jobTitle": "Professor"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "CardioPath: a cardiovascular world model for ECG, chest X-ray and CT",
+      "description": "An 84-second video tour of CardioPath, with on-screen captions and background music, by Md. Mehedi Hassan (supervisor: Professor Shariful Islam, Texas Tech University): ECG analysis and forecasting, model attention, a multimodal patient record, cardiovascular risk over time, follow-up visits, chest X-ray and chest CT analysis.",
+      "thumbnailUrl": "https://mehedihassan.site/images/cardiopath/cardiopath-tour-poster.jpg",
+      "contentUrl": "https://mehedihassan.site/images/cardiopath/cardiopath-tour.mp4",
+      "uploadDate": "2026-11-20",
+      "duration": "PT1M24S",
+      "author": {
+        "@id": "https://mehedihassan.site/#person"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://mehedihassan.site/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "World Models",
+          "item": "https://mehedihassan.site/world-models.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CardioPath",
+          "item": "https://mehedihassan.site/cardiopath.html"
+        }
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mehedihassan.site/#person",
+      "name": "Md. Mehedi Hassan",
+      "url": "https://mehedihassan.site/"
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="shared.css">
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a href="index.html" class="brand">Md. Mehedi Hassan</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="navlinks" id="navLinks">
+        <li><a href="index.html">About</a></li>
+        <li><a href="world-models.html" class="active">World Models</a></li>
+        <li><a href="research.html">Research &amp; Publications</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="news.html">News</a></li>
+        <li class="has-sub">
+          <button type="button" class="sub-toggle" aria-expanded="false" aria-controls="moreMenu">More <span class="caret" aria-hidden="true"></span></button>
+          <ul class="subnav" id="moreMenu">
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="startups.html">Startups &amp; leadership</a></li>
+            <li><a href="commentary.html">Commentary</a></li>
+            <li><a href="community.html">Non-profit &amp; community</a></li>
+            <li><a href="passion.html">Passion &amp; travel</a></li>
+            <li><a href="cv/Md-Mehedi-Hassan-CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+            <li><a href="more.html">All of the above</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <main id="main">
+    <section class="wm-page cp-page">
+      <div class="wrap wm-wrap">
+        <p class="crumbs"><a href="index.html">Home</a> / <a href="world-models.html">World Models</a> / CardioPath</p>
+        <h1 class="h-title">CardioPath: an ECG world model that forecasts the next ECG</h1>
+        <p class="lead">CardioPath is a medical AI system I designed and built. It reads a 12-lead ECG, says what it
+          shows now, and uses a <a href="world-models.html">world model</a> to forecast how the patient&rsquo;s
+          <em>next</em> ECG is likely to look, from 1 month to 2 years ahead. Every statement in its answer links to
+          the model or rule that produced it.</p>
+        <p class="cp-meta">Developed by Md. Mehedi Hassan &middot; Supervisor: Professor Shariful Islam &middot; Texas Tech University</p>
+
+        <div class="demo-note" role="note">
+          <p><a class="btn btn-primary" href="https://dublin-potatoes-interference-universal.trycloudflare.com" target="_blank" rel="nofollow noopener">Try the live demo &nearr;</a></p>
+          <p><strong>Please note:</strong> the demo runs on my own computer and is shared through a temporary link. It
+            is only available while that computer is on, so it may be offline, slow, or the address may change. It is
+            not guaranteed to be working at all times. If the link does not open, <a
+              href="mailto:mehedihassan@ieee.org?subject=CardioPath%20demo">email me</a> and I will share a working
+            one. Please do not enter real patient data.</p>
+        </div>
+
+        <h2>See it working</h2>
+        <figure class="cp-video">
+          <video controls playsinline preload="metadata" poster="images/cardiopath/cardiopath-tour-poster.jpg"
+            width="1440" height="1000">
+            <source src="images/cardiopath/cardiopath-tour.mp4" type="video/mp4">
+          </video>
+          <figcaption>Video tour, 1 min 24 s, with on-screen captions and background music: ECG analysis and forecast, model attention, a multimodal patient record, risk over time, follow-up visits, chest X-ray and chest CT.</figcaption>
+        </figure>
+        <details class="ac-transcript cp-transcript">
+          <summary>On-screen text</summary>
+          <p>CardioPath: a cardiovascular world model, developed by Md. Mehedi Hassan under the supervision of Professor Shariful Islam at Texas Tech University.</p>
+          <p>CardioPath reads a 12-lead ECG and reports the current findings. Each statement is linked to its source.</p>
+          <p>The ECG world model projects every finding forward in time, from one month to two years, with uncertainty across three models.</p>
+          <p>Attention maps show which parts of the tracing drove each finding.</p>
+          <p>For each patient, findings from the ECG, chest X-ray and CT are combined into one current diagnosis.</p>
+          <p>The record tracks 10-year cardiovascular risk, estimates the effect of treatment, and forecasts each ECG condition up to two years ahead.</p>
+          <p>Follow-up visits are kept on a timeline, with the measurements, tests and findings from each visit.</p>
+          <p>All tests and images are organised by visit.</p>
+          <p>On the chest X-ray, the model outlines the heart and lungs, measures the cardiothoracic ratio, and highlights the region behind each finding.</p>
+          <p>On chest CT, organ outlines, calcium scores and aortic measurements are shown in the axial, coronal and sagittal planes.</p>
+        </details>
+
+        <h2>What it does</h2>
+        <ol class="cp-steps">
+          <li><strong>Ask a question about an ECG.</strong> Attach an ECG or pick an example, add age and sex, and ask,
+            for example, &ldquo;what will his ECG look like in 1 year?&rdquo;</li>
+          <li><strong>Read the current ECG.</strong> An ensemble of three networks scores five findings: normal,
+            myocardial infarction, ST/T change, conduction disturbance and hypertrophy. Rule-based measurements add
+            heart rate, rhythm and ST deviation.</li>
+          <li><strong>Forecast the next ECG.</strong> The ECG world model maps the ECG into a latent state and learns
+            how that state changes between a patient&rsquo;s consecutive ECGs. It projects the chance of each finding
+            at 1, 3 and 6 months, 1 year and 2 years. If earlier ECGs exist, it uses up to 15 of them.</li>
+          <li><strong>Check how reliable the answer is.</strong> Each finding gets a 90% conformal certainty check, the
+            test accuracy for the patient&rsquo;s age and sex group, and a novelty score that warns when an ECG is
+            unlike anything in the training data.</li>
+          <li><strong>Read chest X-ray and CT.</strong> In a patient record, a chest X-ray model outlines the heart and lungs and measures the cardiothoracic ratio, and a CT model outlines organs and scores calcium. All findings are combined into one diagnosis, tracked across follow-up visits.</li>
+          <li><strong>Explain where it looked.</strong> Shading on the 12-lead tracing shows which parts of the signal
+            drove the finding (gradient &times; input attention).</li>
+        </ol>
+
+        <h2>Screenshots</h2>
+        <div class="cp-gallery">
+          <figure class="cp-shot">
+            <a href="images/cardiopath/start.webp" target="_blank" rel="noopener"><img src="images/cardiopath/start.webp" alt="CardioPath start screen: What will this ECG look like next?" width="1600" height="1000" loading="lazy"></a>
+            <figcaption>Start: pick an example ECG or attach your own, then ask.</figcaption>
+          </figure>
+          <figure class="cp-shot">
+            <a href="images/cardiopath/answer.webp" target="_blank" rel="noopener"><img src="images/cardiopath/answer.webp" alt="CardioPath answer flagging myocardial infarction at 37% with a 1-year forecast" width="1600" height="1000" loading="lazy"></a>
+            <figcaption>Answer: current findings and a 1-year forecast, each sentence numbered to its source.</figcaption>
+          </figure>
+          <figure class="cp-shot">
+            <a href="images/cardiopath/forecast.webp" target="_blank" rel="noopener"><img src="images/cardiopath/forecast.webp" alt="Projected ECG state chart from now to 2 years with an uncertainty band" width="1560" height="931" loading="lazy"></a>
+            <figcaption>Projected ECG state: mean forecast with &plusmn;1 SD across three models, now to 2 years.</figcaption>
+          </figure>
+          <figure class="cp-shot">
+            <a href="images/cardiopath/ecg-attention.webp" target="_blank" rel="noopener"><img src="images/cardiopath/ecg-attention.webp" alt="12-lead ECG with shaded regions showing model attention for myocardial infarction" width="1560" height="956" loading="lazy"></a>
+            <figcaption>12-lead ECG: shading shows where the model looked for myocardial infarction.</figcaption>
+          </figure>
+          <figure class="cp-shot">
+            <a href="images/cardiopath/findings.webp" target="_blank" rel="noopener"><img src="images/cardiopath/findings.webp" alt="Calibrated probabilities for five ECG findings with reliability and novelty" width="1560" height="889" loading="lazy"></a>
+            <figcaption>Findings: calibrated probabilities, decision thresholds, subgroup AUROC and novelty.</figcaption>
+          </figure>
+          <figure class="cp-shot">
+            <a href="images/cardiopath/sources.webp" target="_blank" rel="noopener"><img src="images/cardiopath/sources.webp" alt="Sources panel listing the ECG reader, world model, measurements and reliability layer" width="1600" height="1000" loading="lazy"></a>
+            <figcaption>Sources: each model and its validation numbers.</figcaption>
+          </figure>
+          <figure class="cp-shot">
+            <a href="images/cardiopath/patient-overview.webp" target="_blank" rel="noopener"><img src="images/cardiopath/patient-overview.webp" alt="Patient record combining ECG, X-ray and CT findings" width="1400" height="875" loading="lazy"></a>
+            <figcaption>Patient record: ECG, chest X-ray and CT findings combined into one current diagnosis.</figcaption>
+          </figure>
+          <figure class="cp-shot">
+            <a href="images/cardiopath/patient-risk.webp" target="_blank" rel="noopener"><img src="images/cardiopath/patient-risk.webp" alt="Cardiovascular risk over the years" width="1400" height="875" loading="lazy"></a>
+            <figcaption>Risk over time: 10-year cardiovascular risk and the estimated effect of treatment.</figcaption>
+          </figure>
+          <figure class="cp-shot">
+            <a href="images/cardiopath/patient-tests.webp" target="_blank" rel="noopener"><img src="images/cardiopath/patient-tests.webp" alt="Tests and images grouped by visit" width="1400" height="875" loading="lazy"></a>
+            <figcaption>Tests and images: ECG, chest X-ray and chest CT, organised by visit.</figcaption>
+          </figure>
+          <figure class="cp-shot">
+            <a href="images/cardiopath/xray-heatmap.webp" target="_blank" rel="noopener"><img src="images/cardiopath/xray-heatmap.webp" alt="Chest X-ray with heart and lung outlines and heat map" width="1400" height="875" loading="lazy"></a>
+            <figcaption>Chest X-ray: heart and lung outlines, cardiothoracic ratio and a heat map.</figcaption>
+          </figure>
+          <figure class="cp-shot">
+            <a href="images/cardiopath/ct-axial.webp" target="_blank" rel="noopener"><img src="images/cardiopath/ct-axial.webp" alt="Axial chest CT with organ outlines" width="1400" height="875" loading="lazy"></a>
+            <figcaption>Chest CT (axial): organ outlines, calcium scores and aortic diameter.</figcaption>
+          </figure>
+          <figure class="cp-shot">
+            <a href="images/cardiopath/ct-coronal.webp" target="_blank" rel="noopener"><img src="images/cardiopath/ct-coronal.webp" alt="Coronal chest CT with organ outlines" width="1400" height="875" loading="lazy"></a>
+            <figcaption>Chest CT (coronal): the same scan in another plane.</figcaption>
+          </figure>
+        </div>
+
+        <h2>How well it works</h2>
+        <div class="cp-table-wrap">
+          <table class="cp-table">
+            <thead><tr><th>Component</th><th>Evaluation</th><th>Result</th></tr></thead>
+            <tbody>
+              <tr><td>ECG reader (CardioPath LeadNet, 3 networks)</td><td>PTB-XL test set, 2,158 ECGs</td>
+                <td>macro-AUROC 0.941 (95% CI 0.935&ndash;0.947)</td></tr>
+              <tr><td>ECG world model (point-of-care version)</td><td>87,232 held-out pairs of consecutive ECGs,
+                  MIMIC-IV-ECG</td><td>macro-AUROC 0.846 (95% CI 0.843&ndash;0.848)</td></tr>
+              <tr><td>Same network without the learned transition</td><td>same pairs</td><td>macro-AUROC 0.833</td></tr>
+              <tr><td>&ldquo;No change&rdquo; baseline</td><td>same pairs</td><td>macro-AUROC 0.811</td></tr>
+              <tr><td>Calibration (Brier score, lower is better)</td><td>same pairs</td><td>0.117 vs 0.162 for
+                  &ldquo;no change&rdquo;</td></tr>
+              <tr><td>Full world model, adding machine measurements</td><td>same pairs</td><td>macro-AUROC 0.865</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="cp-small">The world model was trained on 410,691 ECGs from MIMIC-IV-ECG training patients and
+          averages three models. Forecasts refer to the MIMIC-IV-ECG machine-report classes. Thresholds, calibration
+          and reliability checks were all fitted on validation data.</p>
+
+        <p class="cp-small">The maths in brief is on the <a href="world-models.html#math">World Models page</a>.</p>
+
+        <h2>Built with</h2>
+        <ul class="cp-stack">
+          <li>12-lead ECG deep learning (ensemble of 3 networks)</li>
+          <li>Latent transition model (world model)</li>
+          <li>Conformal prediction</li>
+          <li>Mahalanobis novelty detection</li>
+          <li>Gradient &times; input attention</li>
+          <li>PTB-XL</li>
+          <li>MIMIC-IV-ECG</li>
+        </ul>
+
+        <div class="wm-cta">
+          <p>Interested in a collaboration, the method, or a demo when the live link is offline? Get in touch.</p>
+          <a class="btn btn-primary" href="mailto:mehedihassan@ieee.org?subject=CardioPath">Email me about CardioPath</a>
+          <a class="btn btn-ghost" href="world-models.html">How world models work</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Md. Mehedi Hassan &middot; <a href="index.html">Home</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="#top">Back to top &uarr;</a></p>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navBackdrop = document.getElementById('navBackdrop');
+
+    function setNav(open) {
+      navLinks.classList.toggle('open', open);
+      navBackdrop.classList.toggle('open', open);
+      document.body.classList.toggle('nav-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.textContent = open ? '✕' : '☰';
+      navToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    }
+
+    navToggle.addEventListener('click', () => setNav(!navLinks.classList.contains('open')));
+    navBackdrop.addEventListener('click', () => setNav(false));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        setNav(false);
+        navToggle.focus();
+      }
+    });
+    // never leave the drawer stuck open when resizing up to desktop
+    window.matchMedia('(min-width: 861px)').addEventListener('change', e => {
+      if (e.matches) setNav(false);
+    });
+    // Mark current page active
+    const curPage = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navlinks a').forEach(a => {
+      if (a.getAttribute('href') === curPage) a.classList.add('active');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  </script>
+  <script>
+    // "More" dropdown: click/tap toggles, Escape or outside click closes
+    (function () {
+      const li = document.querySelector('.has-sub');
+      if (!li) return;
+      const btn = li.querySelector('.sub-toggle');
+      const set = open => { li.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); };
+      btn.addEventListener('click', e => { e.stopPropagation(); set(!li.classList.contains('open')); });
+      document.addEventListener('click', e => { if (!li.contains(e.target)) set(false); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && li.classList.contains('open')) { set(false); btn.focus(); } });
+    })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>World Models for Medical AI and Heart Health | Md. Mehedi Hassan</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="World models for medical AI by Md. Mehedi Hassan (supervisor: Professor Shariful Islam, Texas Tech University). CardioPath forecasts the next ECG and combines ECG, chest X-ray and CT in one patient record. Video, imaging, math and results.">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="canonical" href="https://mehedihassan.site/world-models.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Md. Mehedi Hassan">
+  <meta property="og:url" content="https://mehedihassan.site/world-models.html">
+  <meta property="og:title" content="World Models for Medical AI and Heart Health | Md. Mehedi Hassan">
+  <meta property="og:description" content="What a world model is in medical AI, and how Md. Mehedi Hassan’s cardiovascular world model combines ECG, X-ray, CT and clinical data to forecast disease and simulate treatments.">
+  <meta property="og:image" content="https://mehedihassan.site/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="World Models for Medical AI and Heart Health | Md. Mehedi Hassan">
+  <meta name="twitter:description" content="What a world model is in medical AI, and how Md. Mehedi Hassan’s cardiovascular world model combines ECG, X-ray, CT and clinical data to forecast disease and simulate treatments.">
+  <meta name="twitter:image" content="https://mehedihassan.site/images/og-card.jpg">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://mehedihassan.site/world-models.html#page",
+      "url": "https://mehedihassan.site/world-models.html",
+      "name": "World Models for Medical AI and Heart Health",
+      "description": "What a world model is in medical AI, and how a multimodal cardiovascular world model forecasts disease and simulates treatments.",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://mehedihassan.site/#website"
+      },
+      "author": {
+        "@id": "https://mehedihassan.site/#person"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "World model",
+          "sameAs": "https://en.wikipedia.org/wiki/World_model"
+        },
+        {
+          "@type": "Thing",
+          "name": "Artificial intelligence in healthcare",
+          "sameAs": "https://en.wikipedia.org/wiki/Artificial_intelligence_in_healthcare"
+        },
+        {
+          "@type": "Thing",
+          "name": "Cardiovascular disease"
+        }
+      ],
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://mehedihassan.site/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "World Models",
+            "item": "https://mehedihassan.site/world-models.html"
+          }
+        ]
+      },
+      "contributor": {
+        "@type": "Person",
+        "name": "Shariful Islam",
+        "jobTitle": "Professor",
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "Texas Tech University"
+        }
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "name": "CardioPath: a cardiovascular world model for ECG, chest X-ray and CT",
+      "description": "An 84-second video tour of CardioPath, with on-screen captions and background music, by Md. Mehedi Hassan (supervisor: Professor Shariful Islam, Texas Tech University): ECG analysis and forecasting, model attention, a multimodal patient record, cardiovascular risk over time, follow-up visits, chest X-ray and chest CT analysis.",
+      "thumbnailUrl": "https://mehedihassan.site/images/cardiopath/cardiopath-tour-poster.jpg",
+      "contentUrl": "https://mehedihassan.site/images/cardiopath/cardiopath-tour.mp4",
+      "uploadDate": "2026-11-20",
+      "duration": "PT1M24S",
+      "inLanguage": "en",
+      "author": {
+        "@id": "https://mehedihassan.site/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://mehedihassan.site/#person",
+      "name": "Md. Mehedi Hassan",
+      "url": "https://mehedihassan.site/"
+    }
+  ]
+}
+  </script>
+  <link rel="stylesheet" href="shared.css">
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a href="index.html" class="brand">Md. Mehedi Hassan</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      <ul class="navlinks" id="navLinks">
+        <li><a href="index.html">About</a></li>
+        <li><a href="world-models.html" class="active">World Models</a></li>
+        <li><a href="research.html">Research &amp; Publications</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="news.html">News</a></li>
+        <li class="has-sub">
+          <button type="button" class="sub-toggle" aria-expanded="false" aria-controls="moreMenu">More <span class="caret" aria-hidden="true"></span></button>
+          <ul class="subnav" id="moreMenu">
+            <li><a href="experience.html">Experience</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="startups.html">Startups &amp; leadership</a></li>
+            <li><a href="commentary.html">Commentary</a></li>
+            <li><a href="community.html">Non-profit &amp; community</a></li>
+            <li><a href="passion.html">Passion &amp; travel</a></li>
+            <li><a href="cv/Md-Mehedi-Hassan-CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+            <li><a href="more.html">All of the above</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="nav-backdrop" id="navBackdrop"></div>
+
+  <main id="main">
+    <section class="wmd">
+      <div class="wrap wmd-wrap">
+        <p class="crumbs"><a href="index.html">Home</a> / World Models</p>
+
+        <header class="wmd-head">
+          <p class="wmd-kicker">Research project &middot; Medical AI</p>
+          <h1 class="h-title">World Models for Medical AI</h1>
+          <p class="wmd-lead">A world model learns how something changes over time, so it can predict what comes next.
+            My project, CardioPath, applies this to the heart: it reads a patient&rsquo;s ECG, chest X-ray and CT, and
+            forecasts how their ECG findings are likely to change over the next two years.</p>
+          <dl class="wmd-meta">
+            <div><dt>Developed by</dt><dd>Md. Mehedi Hassan, Graduate Research Assistant in Medical AI</dd></div>
+            <div><dt>Supervisor</dt><dd>Professor Shariful Islam</dd></div>
+            <div><dt>Institution</dt><dd>College of Health &amp; Human Sciences, Texas Tech University</dd></div>
+          </dl>
+          <p class="wmd-actions">
+            <a class="btn btn-primary" href="#video">Watch the video</a>
+            <a class="btn btn-ghost" href="https://dublin-potatoes-interference-universal.trycloudflare.com" target="_blank" rel="nofollow noopener">Live demo &nearr;</a>
+            <a class="btn btn-ghost" href="cardiopath.html">CardioPath details</a>
+          </p>
+        </header>
+
+        <section class="wmd-sec" aria-labelledby="how">
+          <h2 id="how">How my model works</h2>
+          <ol class="wmd-steps">
+            <li><span>01</span><strong>Read each test</strong>Separate networks read the 12-lead ECG, the chest X-ray
+              and the chest CT.</li>
+            <li><span>02</span><strong>Build a patient state</strong>The ECG is turned into a compact latent state that
+              summarises the patient&rsquo;s heart.</li>
+            <li><span>03</span><strong>Forecast</strong>A learned transition moves that state forward to predict each
+              ECG finding at 1, 3 and 6 months, 1 and 2 years.</li>
+            <li><span>04</span><strong>Check and explain</strong>Every result has a certainty check, a novelty warning
+              and a map showing where the model looked.</li>
+          </ol>
+          <details class="wmd-more">
+            <summary>View the full design diagram</summary>
+            <div class="wm-fig">
+
+          <div class="wm-flow">
+
+            <div class="wm-stage">
+              <p class="wm-step"><span>1</span> Read each kind of patient data</p>
+              <ul class="wm-list">
+                <li><b>12-lead ECG</b><small>1D ResNet</small></li>
+                <li><b>Chest X-ray</b><small>ResNet-18 / U-Net</small></li>
+                <li><b>3D CT scan</b><small>TotalSegmentator + 3D ResNet</small></li>
+                <li><b>Clinical risk factors</b><small>calibrated gradient boosting</small></li>
+              </ul>
+              <p class="wm-note">Each data type has its own encoder. Trained on six public cohorts with patient-wise splits.</p>
+            </div>
+
+            <div class="wm-arrow" aria-hidden="true"></div>
+
+            <div class="wm-stage">
+              <p class="wm-step"><span>2</span> Combine into one patient state</p>
+              <div class="wm-box">Learned gated fusion<small>weighs how much each data type should count for this patient</small></div>
+              <div class="wm-down" aria-hidden="true"></div>
+              <div class="wm-box wm-key">Shared latent state<small>a compact summary of the patient’s heart health today</small></div>
+            </div>
+
+            <div class="wm-arrow" aria-hidden="true"></div>
+
+            <div class="wm-stage">
+              <p class="wm-step"><span>3</span> Simulate what happens next</p>
+              <div class="wm-box"><b>Forecast</b><small>latent dynamics roll the state forward to predict future ECG findings</small>
+                <span class="wm-time"><i>today</i><i>30 days</i><i>1 year</i></span>
+              </div>
+              <div class="wm-box"><b>What if?</b><small>action-conditioned transitions estimate 10-year cardiovascular risk under an intervention</small>
+                <span class="wm-tags"><i>stop smoking</i><i>control blood pressure</i><i>start statins</i></span>
+              </div>
+            </div>
+
+            <div class="wm-arrow" aria-hidden="true"></div>
+
+            <div class="wm-stage">
+              <p class="wm-step"><span>4</span> Explain, then check the explanation</p>
+              <div class="wm-box">Provenance evidence graph<small>records which data and model step produced every prediction</small></div>
+              <div class="wm-down" aria-hidden="true"></div>
+              <div class="wm-box">MedGemma writes the explanation<small>grounded only in that evidence graph</small></div>
+              <div class="wm-down" aria-hidden="true"></div>
+              <div class="wm-box">Nine-check verifier<small>passes → verified text<br>fails → fixed, rule-based text (no made-up clinical claims)</small></div>
+            </div>
+
+          </div>
+            </div>
+          </details>
+        </section>
+
+        <section class="wmd-sec" aria-labelledby="video">
+          <h2 id="video">See it working</h2>
+          <figure class="wmd-video">
+            <video controls playsinline preload="metadata" poster="images/cardiopath/cardiopath-tour-poster.jpg"
+              width="1440" height="1000">
+              <source src="images/cardiopath/cardiopath-tour.mp4" type="video/mp4">
+            </video>
+            <figcaption>CardioPath video tour (1 min 24 s, with on-screen captions): ECG analysis and forecast, a multimodal patient record,
+              follow-up visits, chest X-ray and chest CT.</figcaption>
+          </figure>
+          <details class="wmd-more">
+            <summary>Read the on-screen text</summary>
+          <p>CardioPath: a cardiovascular world model, developed by Md. Mehedi Hassan under the supervision of Professor Shariful Islam at Texas Tech University.</p>
+          <p>CardioPath reads a 12-lead ECG and reports the current findings. Each statement is linked to its source.</p>
+          <p>The ECG world model projects every finding forward in time, from one month to two years, with uncertainty across three models.</p>
+          <p>Attention maps show which parts of the tracing drove each finding.</p>
+          <p>For each patient, findings from the ECG, chest X-ray and CT are combined into one current diagnosis.</p>
+          <p>The record tracks 10-year cardiovascular risk, estimates the effect of treatment, and forecasts each ECG condition up to two years ahead.</p>
+          <p>Follow-up visits are kept on a timeline, with the measurements, tests and findings from each visit.</p>
+          <p>All tests and images are organised by visit.</p>
+          <p>On the chest X-ray, the model outlines the heart and lungs, measures the cardiothoracic ratio, and highlights the region behind each finding.</p>
+          <p>On chest CT, organ outlines, calcium scores and aortic measurements are shown in the axial, coronal and sagittal planes.</p>
+          </details>
+        </section>
+
+        <section class="wmd-sec" aria-labelledby="imaging">
+          <h2 id="imaging">What it analyses</h2>
+          <div class="wmd-grid">
+          <figure class="wmd-shot">
+            <a href="images/cardiopath/ecg-attention.webp" target="_blank" rel="noopener"><img src="images/cardiopath/ecg-attention.webp" alt="12-lead ECG with model attention shading" width="1560" height="956" loading="lazy"></a>
+            <figcaption><strong>12-lead ECG.</strong> Findings, forecast and the parts of the tracing the model used.</figcaption>
+          </figure>
+          <figure class="wmd-shot">
+            <a href="images/cardiopath/xray-heatmap.webp" target="_blank" rel="noopener"><img src="images/cardiopath/xray-heatmap.webp" alt="Chest X-ray with heart and lung outlines and a heat map" width="1400" height="875" loading="lazy"></a>
+            <figcaption><strong>Chest X-ray.</strong> Heart and lung outlines, cardiothoracic ratio and a heat map for each finding.</figcaption>
+          </figure>
+          <figure class="wmd-shot">
+            <a href="images/cardiopath/ct-axial.webp" target="_blank" rel="noopener"><img src="images/cardiopath/ct-axial.webp" alt="Axial chest CT with organ outlines" width="1400" height="875" loading="lazy"></a>
+            <figcaption><strong>Chest CT, axial.</strong> Organ outlines, calcium scores and aortic diameter.</figcaption>
+          </figure>
+          <figure class="wmd-shot">
+            <a href="images/cardiopath/ct-coronal.webp" target="_blank" rel="noopener"><img src="images/cardiopath/ct-coronal.webp" alt="Coronal chest CT with heart, lung and aorta outlines" width="1400" height="875" loading="lazy"></a>
+            <figcaption><strong>Chest CT, coronal.</strong> The same scan in another plane, with heart volume.</figcaption>
+          </figure>
+          <figure class="wmd-shot">
+            <a href="images/cardiopath/patient-overview.webp" target="_blank" rel="noopener"><img src="images/cardiopath/patient-overview.webp" alt="Patient record combining ECG, X-ray and CT findings" width="1400" height="875" loading="lazy"></a>
+            <figcaption><strong>Patient record.</strong> ECG, X-ray and CT findings combined into one current diagnosis.</figcaption>
+          </figure>
+          <figure class="wmd-shot">
+            <a href="images/cardiopath/patient-risk.webp" target="_blank" rel="noopener"><img src="images/cardiopath/patient-risk.webp" alt="Cardiovascular risk over the years with treatment effect" width="1400" height="875" loading="lazy"></a>
+            <figcaption><strong>Risk over time.</strong> 10-year cardiovascular risk and the estimated effect of treatment.</figcaption>
+          </figure>
+          </div>
+        </section>
+
+        <section class="wmd-sec" aria-labelledby="math">
+          <h2 id="math">The math, in brief</h2>
+          <ul class="wms-math">
+            <li><math><mrow><msub><mi>z</mi><mi>t</mi></msub><mo>=</mo><msub><mi>f</mi><mi>&theta;</mi></msub><mo>(</mo><msub><mi>x</mi><mi>t</mi></msub><mo>)</mo></mrow></math>
+              <span>Encode today&rsquo;s ECG <i>x<sub>t</sub></i> into a latent state.</span></li>
+            <li><math><mrow><msub><mover accent="true"><mi>z</mi><mo>^</mo></mover><mrow><mi>t</mi><mo>+</mo><mi>&Delta;</mi></mrow></msub><mo>=</mo><msub><mi>T</mi><mi>&phi;</mi></msub><mo>(</mo><msub><mi>z</mi><mi>t</mi></msub><mo>,</mo><msub><mi>h</mi><mi>t</mi></msub><mo>,</mo><mi>&Delta;</mi><mo>)</mo></mrow></math>
+              <span>Move the state forward by &Delta; (1 month to 2 years), using up to 15 earlier ECGs <i>h<sub>t</sub></i>.
+                Learned from 410,691 ECGs.</span></li>
+            <li><math><mrow><msub><mover accent="true"><mi>p</mi><mo>^</mo></mover><mi>k</mi></msub><mo>=</mo><mi>&sigma;</mi><mo>(</mo><msub><mi>g</mi><mi>k</mi></msub><mo>(</mo><msub><mover accent="true"><mi>z</mi><mo>^</mo></mover><mrow><mi>t</mi><mo>+</mo><mi>&Delta;</mi></mrow></msub><mo>)</mo><mo>)</mo></mrow></math>
+              <span>Turn the future state into the probability of each finding <i>k</i>, averaged over 3 models.</span></li>
+          </ul>
+        </section>
+
+        <section class="wmd-sec" aria-labelledby="results">
+          <h2 id="results">Results</h2>
+          <table class="wms-table">
+            <thead><tr><th>Test</th><th class="num">AUROC</th></tr></thead>
+            <tbody>
+              <tr><td>Reading today&rsquo;s ECG (PTB-XL, 2,158 ECGs)</td><td class="num">0.941</td></tr>
+              <tr><td>Forecasting the next ECG (87,232 held-out ECG pairs)</td><td class="num">0.846</td></tr>
+              <tr><td>Baseline: assuming the ECG will not change</td><td class="num">0.811</td></tr>
+              <tr><td>Full world model, with machine measurements</td><td class="num">0.865</td></tr>
+            </tbody>
+          </table>
+          <p class="wms-small">Higher is better; 1.0 is perfect.</p>
+        </section>
+
+        <section class="wmd-sec" aria-labelledby="try">
+          <h2 id="try">Try it</h2>
+          <p class="wms-note">The <a href="https://dublin-potatoes-interference-universal.trycloudflare.com" target="_blank" rel="nofollow noopener">live demo</a> runs on my own
+            computer through a temporary link, so it may be offline or its address may change; it is not guaranteed to
+            be available. If it does not open, <a href="mailto:mehedihassan@ieee.org?subject=CardioPath%20demo">email
+              me</a>. Please do not enter real patient data.</p>
+          <p class="wmd-related">Related: <a href="books.html"><em>Deep Learning in Cardiovascular Health</em></a>
+            (Springer, 2026) &middot; <a href="research.html#publications">all publications</a> &middot;
+            <a href="mailto:mehedihassan@ieee.org">collaborate</a></p>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Md. Mehedi Hassan &middot; <a href="index.html">Home</a> &middot; <a href="contact.html">Contact</a> &middot; <a href="#top">Back to top &uarr;</a></p>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navBackdrop = document.getElementById('navBackdrop');
+
+    function setNav(open) {
+      navLinks.classList.toggle('open', open);
+      navBackdrop.classList.toggle('open', open);
+      document.body.classList.toggle('nav-open', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.textContent = open ? '✕' : '☰';
+      navToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+    }
+
+    navToggle.addEventListener('click', () => setNav(!navLinks.classList.contains('open')));
+    navBackdrop.addEventListener('click', () => setNav(false));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+        setNav(false);
+        navToggle.focus();
+      }
+    });
+    // never leave the drawer stuck open when resizing up to desktop
+    window.matchMedia('(min-width: 861px)').addEventListener('change', e => {
+      if (e.matches) setNav(false);
+    });
+    // Mark current page active
+    const curPage = location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.navlinks a').forEach(a => {
+      if (a.getAttribute('href') === curPage) a.classList.add('active');
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // reveal on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  </script>
+  <script>
+    // "More" dropdown: click/tap toggles, Escape or outside click closes
+    (function () {
+      const li = document.querySelector('.has-sub');
+      if (!li) return;
+      const btn = li.querySelector('.sub-toggle');
+      const set = open => { li.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); };
+      btn.addEventListener('click', e => { e.stopPropagation(); set(!li.classList.contains('open')); });
+      document.addEventListener('click', e => { if (!li.contains(e.target)) set(false); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape' && li.classList.contains('open')) { set(false); btn.focus(); } });
+    })();
+  </script>
+</body>
+
+</html>
